@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:BirdAtlas"
+             xmlns:views="clr-namespace:BirdAtlas.Views"
+             x:Class="BirdAtlas.Views.MainPage">
+    <NavigationPage Title="Discover">
+        <x:Arguments>
+            <views:DiscoverPage />
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="Search">
+        <x:Arguments>
+            <views:SearchPage />
+        </x:Arguments>
+    </NavigationPage>
+    <NavigationPage Title="Bookmark">
+        <x:Arguments>
+            <views:BookmarkPage />
+        </x:Arguments>
+    </NavigationPage>
+</TabbedPage>
