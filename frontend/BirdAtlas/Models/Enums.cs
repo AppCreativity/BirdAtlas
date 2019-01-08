@@ -7,4 +7,10 @@
         Navigate,
         Modal
     }
+
+    public enum PageAction
+    {
+        None,
+        Settings
+    }
 }

@@ -21,6 +21,9 @@ namespace BirdAtlas.Views
         public static readonly BindableProperty PageModeProperty =
             BindableProperty.Create(nameof(PageMode), typeof(PageMode), typeof(BasePage), PageMode.None, propertyChanged: OnPageModePropertyChanged);
 
+        public static readonly BindableProperty PageActionProperty =
+            BindableProperty.Create(nameof(PageMode), typeof(PageAction), typeof(BasePage), PageAction.None, propertyChanged: OnPageActionPropertyChanged);
+
         public string BasePageTitle
         {
             get => (string)GetValue(BasePageTitleProperty);
@@ -39,6 +42,12 @@ namespace BirdAtlas.Views
             set => SetValue(PageModeProperty, value);
         }
 
+        public PageAction PageAction
+        {
+            get => (PageAction)GetValue(PageActionProperty);
+            set => SetValue(PageActionProperty, value);
+        }
+
         private static void OnBasePageTitleChanged(BindableObject bindable, object oldValue, object newValue)
         {
             if (bindable != null && bindable is BasePage basePage)
@@ -49,6 +58,12 @@ namespace BirdAtlas.Views
         {
             if (bindable != null && bindable is BasePage basePage)
                 basePage.SetPageMode((PageMode)newValue);
+        }
+
+        private static void OnPageActionPropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            if (bindable != null && bindable is BasePage basePage)
+                basePage.SetPageAction((PageAction)newValue);
         }
         #endregion
 
@@ -61,6 +76,9 @@ namespace BirdAtlas.Views
 
             //Initialize the page mode
             SetPageMode(PageMode.None);
+
+            //Initialize the page action
+            SetPageAction(PageAction.None);
 
             //Fix top page marging requirement depending on the current device running the app
             StatusRowDefinition.Height = DependencyService.Get<IDeviceInfo>().StatusbarHeight;
@@ -102,6 +120,19 @@ namespace BirdAtlas.Views
             }
 
             //HandleHamburgerMenuGesture(PageMode == PageMode.Menu);
+        }
+
+        private void SetPageAction(PageAction pageAction)
+        {
+            switch(pageAction)
+            {
+                case PageAction.Settings:
+                    SettingsButton.IsVisible = true;
+                    break;
+                default:
+                    SettingsButton.IsVisible = false;
+                    break;
+            }
         }
     }
 }

@@ -33,6 +33,12 @@
                        HorizontalTextAlignment="Center"
                        LineBreakMode="WordWrap"
                        Grid.Column="1" />
+                
+                <Button x:Name="SettingsButton"
+                        Text="&#xF66A;"
+                        Command="{Binding SettingsCommand}"
+                        Style="{StaticResource MaterialButton}"
+                        Grid.Column="2" />
             </Grid>
             
             <Grid x:Name="BaseContentGrid"
