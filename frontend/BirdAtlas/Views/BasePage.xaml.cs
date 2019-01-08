@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using BirdAtlas.Controls;
 using BirdAtlas.Framework;
+using BirdAtlas.Models;
 using Xamarin.Forms;
 
 namespace BirdAtlas.Views
@@ -17,8 +18,8 @@ namespace BirdAtlas.Views
         public static readonly BindableProperty HideTabbarProperty =
             BindableProperty.Create(nameof(HideTabbar), typeof(bool), typeof(BasePage), false);
 
-        //public static readonly BindableProperty PageModeProperty =
-        //BindableProperty.Create(nameof(PageMode), typeof(PageMode), typeof(BasePage), PageMode.None, propertyChanged: OnPageModePropertyChanged);
+        public static readonly BindableProperty PageModeProperty =
+            BindableProperty.Create(nameof(PageMode), typeof(PageMode), typeof(BasePage), PageMode.None, propertyChanged: OnPageModePropertyChanged);
 
         public string BasePageTitle
         {
@@ -32,11 +33,11 @@ namespace BirdAtlas.Views
             set => SetValue(HideTabbarProperty, value);
         }
 
-        //public PageMode PageMode
-        //{
-        //    get => (PageMode)GetValue(PageModeProperty);
-        //    set => SetValue(PageModeProperty, value);
-        //}
+        public PageMode PageMode
+        {
+            get => (PageMode)GetValue(PageModeProperty);
+            set => SetValue(PageModeProperty, value);
+        }
 
         private static void OnBasePageTitleChanged(BindableObject bindable, object oldValue, object newValue)
         {
@@ -44,11 +45,11 @@ namespace BirdAtlas.Views
                 basePage.TitleLabel.Text = (string)newValue;
         }
 
-        //private static void OnPageModePropertyChanged(BindableObject bindable, object oldValue, object newValue)
-        //{
-        //    if (bindable != null && bindable is BasePage basePage)
-        //        basePage.SetPageMode((PageMode)newValue);
-        //}
+        private static void OnPageModePropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            if (bindable != null && bindable is BasePage basePage)
+                basePage.SetPageMode((PageMode)newValue);
+        }
         #endregion
 
         public BasePage()
@@ -57,6 +58,9 @@ namespace BirdAtlas.Views
 
             //Hide the Xamarin Forms build in navigation header
             NavigationPage.SetHasNavigationBar(this, false);
+
+            //Initialize the page mode
+            SetPageMode(PageMode.None);
 
             //Fix top page marging requirement depending on the current device running the app
             StatusRowDefinition.Height = DependencyService.Get<IDeviceInfo>().StatusbarHeight;
@@ -68,6 +72,36 @@ namespace BirdAtlas.Views
 
             var mainPage = App.Current.MainPage as CustomTabbedPage;
             mainPage.IsHidden = HideTabbar;
+        }
+
+        private void SetPageMode(PageMode pageMode)
+        {
+            //((ViewModelBase)BindingContext).PageMode = pageMode;
+
+            switch (pageMode)
+            {
+                case PageMode.Menu:
+                    //HamburgerButton.IsVisible = true;
+                    NavigateBackButton.IsVisible = false;
+                    //CloseButton.IsVisible = false;
+                    break;
+                case PageMode.Navigate:
+                    //HamburgerButton.IsVisible = false;
+                    NavigateBackButton.IsVisible = true;
+                    //CloseButton.IsVisible = false;
+                    break;
+                case PageMode.Modal:
+                    //HamburgerButton.IsVisible = false;
+                    NavigateBackButton.IsVisible = false;
+                    //CloseButton.IsVisible = true;
+                    break;
+                default:
+                    //HamburgerButton.IsVisible = false;
+                    NavigateBackButton.IsVisible = false;
+                    break;
+            }
+
+            //HandleHamburgerMenuGesture(PageMode == PageMode.Menu);
         }
     }
 }

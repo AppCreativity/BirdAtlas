@@ -171,6 +171,7 @@
     <BundleResource Include="Resources\ic_discover.png" />
     <BundleResource Include="Resources\challenges%402x.png" />
     <BundleResource Include="Resources\schedule%402x.png" />
+    <BundleResource Include="Resources\materialdesignicons-webfont.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Framework\" />

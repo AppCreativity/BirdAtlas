@@ -27,6 +27,7 @@ namespace BirdAtlas
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
+            //containerRegistry.RegisterForNavigation<BasePage, BaseViewModel>();
             containerRegistry.RegisterForNavigation<MainPage, MainViewModel>();
             containerRegistry.RegisterForNavigation<DiscoverPage, DiscoverViewModel>();
             containerRegistry.RegisterForNavigation<SearchPage, SearchViewModel>();
