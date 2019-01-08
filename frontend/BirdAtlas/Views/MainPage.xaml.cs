@@ -1,8 +1,9 @@
-﻿using Xamarin.Forms;
+﻿using BirdAtlas.Controls;
+using Xamarin.Forms;
 
 namespace BirdAtlas.Views
 {
-    public partial class MainPage : TabbedPage
+    public partial class MainPage : CustomTabbedPage
     {
         public MainPage()
         {

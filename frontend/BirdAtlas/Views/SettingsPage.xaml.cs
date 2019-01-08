@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Xamarin.Forms;
-
-namespace BirdAtlas.Views
+﻿namespace BirdAtlas.Views
 {
-    public partial class SettingsPage : ContentPage
+    public partial class SettingsPage : BasePage
     {
         public SettingsPage()
         {

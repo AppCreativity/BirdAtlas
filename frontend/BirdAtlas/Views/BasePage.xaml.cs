@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using BirdAtlas.Controls;
 using BirdAtlas.Framework;
 using Xamarin.Forms;
 
@@ -49,6 +50,19 @@ namespace BirdAtlas.Views
 
             //Fix top page marging requirement depending on the current device running the app
             StatusRowDefinition.Height = DependencyService.Get<IDeviceInfo>().StatusbarHeight;
+        }
+
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            var mainPage = App.Current.MainPage as CustomTabbedPage;
+
+            var pageName = this.GetType().Name;
+            if (pageName.Equals(typeof(SettingsPage).Name))
+                mainPage.IsHidden = true;
+            else
+                mainPage.IsHidden = false;
         }
     }
 }
