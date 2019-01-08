@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using BirdAtlas.Controls;
 using BirdAtlas.Framework;
 using Xamarin.Forms;
@@ -13,13 +14,22 @@ namespace BirdAtlas.Views
         public static readonly BindableProperty BasePageTitleProperty =
             BindableProperty.Create(nameof(BasePageTitle), typeof(string), typeof(BasePage), string.Empty, defaultBindingMode: BindingMode.OneWay, propertyChanged: OnBasePageTitleChanged);
 
+        public static readonly BindableProperty HideTabbarProperty =
+            BindableProperty.Create(nameof(HideTabbar), typeof(bool), typeof(BasePage), false);
+
         //public static readonly BindableProperty PageModeProperty =
-            //BindableProperty.Create(nameof(PageMode), typeof(PageMode), typeof(BasePage), PageMode.None, propertyChanged: OnPageModePropertyChanged);
+        //BindableProperty.Create(nameof(PageMode), typeof(PageMode), typeof(BasePage), PageMode.None, propertyChanged: OnPageModePropertyChanged);
 
         public string BasePageTitle
         {
             get => (string)GetValue(BasePageTitleProperty);
             set => SetValue(BasePageTitleProperty, value);
+        }
+
+        public bool HideTabbar
+        {
+            get => (bool)GetValue(HideTabbarProperty);
+            set => SetValue(HideTabbarProperty, value);
         }
 
         //public PageMode PageMode
@@ -57,12 +67,7 @@ namespace BirdAtlas.Views
             base.OnAppearing();
 
             var mainPage = App.Current.MainPage as CustomTabbedPage;
-
-            var pageName = this.GetType().Name;
-            if (pageName.Equals(typeof(SettingsPage).Name))
-                mainPage.IsHidden = true;
-            else
-                mainPage.IsHidden = false;
+            mainPage.IsHidden = HideTabbar;
         }
     }
 }
