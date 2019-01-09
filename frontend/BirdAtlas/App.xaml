@@ -7,6 +7,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                <xamlresources:DataTemplates />
                 <xamlresources:Styles />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

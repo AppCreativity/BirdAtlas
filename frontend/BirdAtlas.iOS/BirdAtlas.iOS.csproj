@@ -172,6 +172,8 @@
     <BundleResource Include="Resources\challenges%402x.png" />
     <BundleResource Include="Resources\schedule%402x.png" />
     <BundleResource Include="Resources\materialdesignicons-webfont.ttf" />
+    <BundleResource Include="Resources\Montserrat-Medium.ttf" />
+    <BundleResource Include="Resources\Montserrat-SemiBold.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Framework\" />

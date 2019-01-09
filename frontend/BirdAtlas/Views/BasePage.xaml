@@ -29,6 +29,7 @@
 
                 <Label x:Name="TitleLabel"
                        TextColor="Black"
+                       FontFamily="{StaticResource MontserratSemiBoldFontFamily}"
                        VerticalOptions="FillAndExpand" HorizontalOptions="Center" VerticalTextAlignment="Center"
                        HorizontalTextAlignment="Center"
                        LineBreakMode="WordWrap"
