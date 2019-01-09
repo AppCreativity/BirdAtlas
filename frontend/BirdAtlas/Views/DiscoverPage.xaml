@@ -6,5 +6,62 @@
                 BasePageTitle="Discover"
                 PageAction="Settings">
     <views:BasePage.BasePageContent>
+        <ScrollView Margin="0,24,0,12">
+            <StackLayout Orientation="Vertical">
+                <Grid RowSpacing="0" ColumnSpacing="0"
+                      Margin="24,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <Label Text="Stories"
+                           Style="{StaticResource CategoryLabel}"
+                           HorizontalOptions="StartAndExpand"
+                           Grid.Column="0" />
+                    
+                    <Label Text="Show all"
+                           Style="{StaticResource CategoryLinkLabel}"
+                           HorizontalOptions="EndAndExpand"
+                           Grid.Column="1" />
+                </Grid>
+                
+                <Grid RowSpacing="0" ColumnSpacing="0"
+                      Margin="24,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <Label Text="Habitats"
+                           Style="{StaticResource CategoryLabel}"
+                           HorizontalOptions="StartAndExpand"
+                           Grid.Column="0" />
+                    
+                    <Label Text="Show all"
+                           Style="{StaticResource CategoryLinkLabel}"
+                           HorizontalOptions="EndAndExpand"
+                           Grid.Column="1" />
+                </Grid>
+                
+                <Grid RowSpacing="0" ColumnSpacing="0"
+                      Margin="24,0,24,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    
+                    <Label Text="Nearby"
+                           Style="{StaticResource CategoryLabel}"
+                           HorizontalOptions="StartAndExpand"
+                           Grid.Column="0" />
+                    
+                    <Label Text="Show all"
+                           Style="{StaticResource CategoryLinkLabel}"
+                           HorizontalOptions="EndAndExpand"
+                           Grid.Column="1" />
+                </Grid>                
+            </StackLayout>
+        </ScrollView>
     </views:BasePage.BasePageContent>
 </views:BasePage>

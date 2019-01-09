@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-
-using Xamarin.Forms;
-
-namespace BirdAtlas.Views
+﻿namespace BirdAtlas.Views
 {
-    public partial class SearchPage : ContentPage
+    public partial class SearchPage : BasePage
     {
         public SearchPage()
         {

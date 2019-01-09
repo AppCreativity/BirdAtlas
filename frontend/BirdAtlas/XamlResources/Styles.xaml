@@ -28,4 +28,15 @@
         <Setter Property="BorderColor" Value="Transparent" />
         <Setter Property="BackgroundColor" Value="Transparent" />
     </Style>
+    
+    <Style x:Key="CategoryLabel" TargetType="Label">
+        <Setter Property="FontFamily" Value="{StaticResource MontserratSemiBoldFontFamily}" />
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+    
+    <Style x:Key="CategoryLinkLabel" TargetType="Label">
+        <Setter Property="FontFamily" Value="{StaticResource MontserratSemiBoldFontFamily}" />
+        <Setter Property="FontSize" Value="14" />
+        <Setter Property="TextColor" Value="#3d60db" />
+    </Style>
 </ResourceDictionary>

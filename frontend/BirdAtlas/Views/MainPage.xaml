@@ -5,7 +5,7 @@
                            xmlns:views="clr-namespace:BirdAtlas.Views"
                            xmlns:controls="clr-namespace:BirdAtlas.Controls;assembly=BirdAtlas"
                            x:Class="BirdAtlas.Views.MainPage">
-    <NavigationPage Title="Discover">
+    <NavigationPage Title="Discover" Icon="ic_discover.png">
         <x:Arguments>
             <views:DiscoverPage />
         </x:Arguments>
