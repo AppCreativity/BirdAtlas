@@ -19,5 +19,6 @@
     <Folder Include="Framework\" />
     <Folder Include="Controls\" />
     <Folder Include="Models\" />
+    <Folder Include="XamlResources\" />
   </ItemGroup>
 </Project>
