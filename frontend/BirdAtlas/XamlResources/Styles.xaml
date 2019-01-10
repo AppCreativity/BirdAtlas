@@ -2,6 +2,8 @@
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                     x:Class="BirdAtlas.XamlResources.Styles">
+    <Color x:Key="Dark">#262d3a</Color>
+    
     <OnPlatform x:Key="MaterialFontFamily" x:TypeArguments="x:String">
         <On Platform="iOS" Value="Material Design Icons" />
         <On Platform="Android" Value="materialdesignicons-webfont.ttf#Material Design Icons" />
@@ -39,4 +41,16 @@
         <Setter Property="FontSize" Value="14" />
         <Setter Property="TextColor" Value="#3d60db" />
     </Style>
+    
+    <Style x:Key="StoryCategoryLabel" TargetType="Label">
+        <Setter Property="FontFamily" Value="{StaticResource MontserratMediumFontFamily}" />
+        <Setter Property="FontSize" Value="11" />
+        <Setter Property="TextColor" Value="{StaticResource Dark}" />
+    </Style>
+    
+    <Style x:Key="StoryTitleLabel" TargetType="Label">
+        <Setter Property="FontFamily" Value="{StaticResource MontserratMediumFontFamily}" />
+        <Setter Property="FontSize" Value="13" />
+        <Setter Property="TextColor" Value="{StaticResource Dark}" />
+    </Style>    
 </ResourceDictionary>

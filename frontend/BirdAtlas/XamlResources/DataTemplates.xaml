@@ -2,4 +2,19 @@
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                     x:Class="BirdAtlas.XamlResources.DataTemplates">
+    <DataTemplate x:Key="StoryListItemTemplate">
+        <ViewCell>
+            <Grid ColumnSpacing="0" RowSpacing="5" BackgroundColor="Silver">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                
+                <Label Text="{Binding Category}" Style="{StaticResource StoryCategoryLabel}"
+                       Grid.Row="0" />
+                <Label Text="{Binding Title}" Style="{StaticResource StoryTitleLabel}"
+                       Grid.Row="1" />
+            </Grid>
+        </ViewCell>
+    </DataTemplate>
 </ResourceDictionary>
