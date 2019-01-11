@@ -4,7 +4,10 @@
                            xmlns:local="clr-namespace:BirdAtlas"
                            xmlns:views="clr-namespace:BirdAtlas.Views"
                            xmlns:controls="clr-namespace:BirdAtlas.Controls;assembly=BirdAtlas"
-                           x:Class="BirdAtlas.Views.MainPage">
+                           xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+                           x:Class="BirdAtlas.Views.MainPage"
+                           android:TabbedPage.ToolbarPlacement="Bottom"
+                           android:TabbedPage.IsSwipePagingEnabled="false">
     <NavigationPage Title="Discover" Icon="ic_discover.png">
         <x:Arguments>
             <views:DiscoverPage />
