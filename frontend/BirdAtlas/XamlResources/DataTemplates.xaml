@@ -6,14 +6,22 @@
         <ViewCell>
             <Grid ColumnSpacing="0" RowSpacing="5" BackgroundColor="Silver">
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="100" />
                     <RowDefinition Height="Auto" />
                     <RowDefinition Height="Auto" />
                 </Grid.RowDefinitions>
                 
+                <Image Aspect="Fill" HeightRequest="100" WidthRequest="200">
+                    <Image.Source>
+                        <UriImageSource Uri="{Binding Image}" />
+                    </Image.Source>
+                </Image>
                 <Label Text="{Binding Category}" Style="{StaticResource StoryCategoryLabel}"
-                       Grid.Row="0" />
-                <Label Text="{Binding Title}" Style="{StaticResource StoryTitleLabel}"
+                       Margin="5,0,5,0"
                        Grid.Row="1" />
+                <Label Text="{Binding Title}" Style="{StaticResource StoryTitleLabel}"
+                       Margin="5,0,5,0"
+                       Grid.Row="2" />
             </Grid>
         </ViewCell>
     </DataTemplate>

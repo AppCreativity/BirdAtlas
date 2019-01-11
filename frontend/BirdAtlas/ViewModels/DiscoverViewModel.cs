@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using BirdAtlas.Models;
 using Prism.Navigation;
 
@@ -15,12 +16,13 @@ namespace BirdAtlas.ViewModels
 
         public DiscoverViewModel(INavigationService navigationService) : base(navigationService)
         {
-            Stories.Add(new Story() { Category = "The Wilds", Title = "Why we need to save the scavengers?" });
-            Stories.Add(new Story() { Category = "Science", Title = "Drunk birds? What is happening..." });
-            Stories.Add(new Story() { Category = "The Wilds", Title = "Why we need to save the scavengers?" });
-            Stories.Add(new Story() { Category = "Science", Title = "Drunk birds? What is happening..." });
-            Stories.Add(new Story() { Category = "The Wilds", Title = "Why we need to save the scavengers?" });
-            Stories.Add(new Story() { Category = "Science", Title = "Drunk birds? What is happening..." });
+            //https://stackoverflow.com/questions/41160918/xamarin-forms-image-source-with-ssl
+            Stories.Add(new Story() { Category = "The Wilds", Title = "Why we need to save the scavengers?", Image = new Uri("http://placekitten.com/g/200/100") });
+            Stories.Add(new Story() { Category = "Science", Title = "Drunk birds? What is happening...", Image = new Uri("http://placekitten.com/g/200/100") });
+            Stories.Add(new Story() { Category = "The Wilds", Title = "Why we need to save the scavengers?", Image = new Uri("http://placekitten.com/g/200/100") });
+            Stories.Add(new Story() { Category = "Science", Title = "Drunk birds? What is happening...", Image = new Uri("http://placekitten.com/g/200/100") });
+            Stories.Add(new Story() { Category = "The Wilds", Title = "Why we need to save the scavengers?", Image = new Uri("http://placekitten.com/g/200/100") });
+            Stories.Add(new Story() { Category = "Science", Title = "Drunk birds? What is happening...", Image = new Uri("http://placekitten.com/g/200/100") });
         }
     }
 }
