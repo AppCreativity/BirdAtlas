@@ -26,15 +26,15 @@
                            HorizontalOptions="EndAndExpand"
                            Grid.Column="1" />
                 </Grid>
-
+                
                 <renderedViews:HorizontalListView x:Name="StoryListView"
-                                                  Margin="24,12,0,0"
+                                                  Margin="0,12,0,0" CollectionPadding="24,0,24,0"
                                                   ItemSpacing="10" ItemHeight="200" ItemWidth="180" SnapStyle="None"
                                                   ItemsSource="{Binding Stories}"
                                                   ItemTemplate="{StaticResource StoryListItemTemplate}" />
                 
                 <Grid RowSpacing="0" ColumnSpacing="0"
-                      Margin="24,24,24,0">
+                      Margin="24,4,24,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />

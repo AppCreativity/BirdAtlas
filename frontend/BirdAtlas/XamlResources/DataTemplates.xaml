@@ -1,27 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                    x:Class="BirdAtlas.XamlResources.DataTemplates">
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="BirdAtlas.XamlResources.DataTemplates">
     <DataTemplate x:Key="StoryListItemTemplate">
         <ViewCell>
-            <Grid ColumnSpacing="0" RowSpacing="5" BackgroundColor="Silver">
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="100" />
-                    <RowDefinition Height="Auto" />
-                    <RowDefinition Height="Auto" />
-                </Grid.RowDefinitions>
-                
-                <Image Aspect="Fill" HeightRequest="100" WidthRequest="200">
-                    <Image.Source>
-                        <UriImageSource Uri="{Binding Image}" />
-                    </Image.Source>
-                </Image>
-                <Label Text="{Binding Category}" Style="{StaticResource StoryCategoryLabel}"
-                       Margin="5,0,5,0"
-                       Grid.Row="1" />
-                <Label Text="{Binding Title}" Style="{StaticResource StoryTitleLabel}"
-                       Margin="5,0,5,0"
-                       Grid.Row="2" />
+            <Grid Padding="0,0,0,20">
+                <Frame Padding="0" CornerRadius="10">
+                    <Grid Padding="0" RowSpacing="0">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="4*" />
+                            <RowDefinition Height="3*" />
+                        </Grid.RowDefinitions>
+                        <Image Aspect="AspectFill" Grid.Row="0" HorizontalOptions="Fill" VerticalOptions="Fill" 
+                               Source="{Binding ImageUrl}" />
+                        <StackLayout VerticalOptions="CenterAndExpand" Grid.Row="1" Padding="12">
+                            <Label Text="{Binding Category}" Style="{StaticResource StoryCategoryLabel}" />
+                            <Label Text="{Binding Title}" Style="{StaticResource StoryTitleLabel}" />
+                        </StackLayout>
+                    </Grid>
+                </Frame>
             </Grid>
         </ViewCell>
     </DataTemplate>
