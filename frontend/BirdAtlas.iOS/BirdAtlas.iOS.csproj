@@ -98,6 +98,7 @@
     <Compile Include="Framework\DeviceInfo.cs" />
     <Compile Include="Renderers\CustomTabbedPageRenderer.cs" />
     <Compile Include="Framework\Helpers.cs" />
+    <Compile Include="Renderers\ContentViewRoundedCornersRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -180,6 +181,12 @@
     <BundleResource Include="Resources\Montserrat-SemiBold.ttf" />
     <BundleResource Include="Resources\ic_discover%402x.png" />
     <BundleResource Include="Resources\ic_discover%403x.png" />
+    <BundleResource Include="Resources\ic_search.png" />
+    <BundleResource Include="Resources\ic_search%402x.png" />
+    <BundleResource Include="Resources\ic_search%403x.png" />
+    <BundleResource Include="Resources\ic_bookmarks.png" />
+    <BundleResource Include="Resources\ic_bookmarks%402x.png" />
+    <BundleResource Include="Resources\ic_bookmarks%403x.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Framework\" />

@@ -18,14 +18,14 @@ namespace BirdAtlas.iOS.Renderers
             base.OnElementChanged(e);
             Element.PropertyChanged += OnElementPropertyChanged;
 
-            var rect = new CGRect(0, 0, 200, 100);
+            var rect = new CGRect(0, 0, 250, 55);
             var overlayTabView = Helpers.ConvertFormsToNative(new OverlayTabView(), rect);
 
             var result = UIScreen.MainScreen.Bounds;
-            var x = (result.Width / 2) - 100;
-            var y = (result.Height - (100 + 20));
+            var x = (result.Width / 2) - 125;
+            var y = (result.Height - (55 + 20));
 
-            overlayTabView.Frame = new CGRect(x, y, 200, 100);
+            overlayTabView.Frame = new CGRect(x, y, 250, 55);
 
             View.AddSubview(overlayTabView);
         }

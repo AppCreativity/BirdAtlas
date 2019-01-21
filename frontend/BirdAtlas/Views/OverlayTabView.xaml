@@ -1,17 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="BirdAtlas.Views.OverlayTabView">
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:controls="clr-namespace:BirdAtlas.Controls"
+             x:Class="BirdAtlas.Views.OverlayTabView">
     <ContentView.Content>
-        <Grid RowSpacing="0" ColumnSpacing="0"
-              BackgroundColor="Silver">
+        <Grid RowSpacing="0" ColumnSpacing="0">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             
-            <Button Text="B0" Grid.Column="0" Clicked="Handle_Clicked" />
+            <controls:ContentViewRoundedCorners BackgroundColor="#ededed"
+                                                CornerRadius="25" Opacity="0.85"
+                                                VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" 
+                                                Grid.Column="0" Grid.ColumnSpan="3" />
+            
+<!--            <Button Text="B0" Grid.Column="0" Clicked="Handle_Clicked" />
             <Button Text="B1" Grid.Column="1" Clicked="Handle_Clicked" />
             <Button Text="B2" Grid.Column="2" Clicked="Handle_Clicked" />
+-->            
+            <StackLayout HeightRequest="26" WidthRequest="26"
+                         VerticalOptions="Center" HorizontalOptions="Center"
+                         Grid.Column="0">
+            <Image x:Name="Tab1" Source="ic_discover.png"
+                   HeightRequest="26" WidthRequest="26">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Handle_Clicked" NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+            </Image>
+            </StackLayout>
+            
+            <StackLayout HeightRequest="26" WidthRequest="26"
+                 VerticalOptions="Center" HorizontalOptions="Center"
+                 Grid.Column="1">
+            <Image x:Name="Tab2" Source="ic_search.png"
+                   HeightRequest="26" WidthRequest="26">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Handle_Clicked" NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+            </Image>
+            </StackLayout>
+                
+            
+            <StackLayout HeightRequest="26" WidthRequest="26"
+                 VerticalOptions="Center" HorizontalOptions="Center"
+                 Grid.Column="2">
+            <Image x:Name="Tab3" Source="ic_bookmarks.png"
+                   HeightRequest="26" WidthRequest="26">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Handle_Clicked" NumberOfTapsRequired="1" />
+                </Image.GestureRecognizers>
+            </Image>
+            </StackLayout>
+                
         </Grid>
     </ContentView.Content>
 </ContentView>
