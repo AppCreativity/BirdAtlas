@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="BirdAtlas.Views.OverlayTabView">
+    <ContentView.Content>
+        <Grid RowSpacing="0" ColumnSpacing="0"
+              BackgroundColor="Silver">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            
+            <Button Text="B0" Grid.Column="0" Clicked="Handle_Clicked" />
+            <Button Text="B1" Grid.Column="1" Clicked="Handle_Clicked" />
+            <Button Text="B2" Grid.Column="2" Clicked="Handle_Clicked" />
+        </Grid>
+    </ContentView.Content>
+</ContentView>
