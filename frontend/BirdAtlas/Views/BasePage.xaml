@@ -35,8 +35,9 @@
                        LineBreakMode="WordWrap"
                        Grid.Column="1" />
                 
+<!--                Text="&#xF66A;"-->
                 <Button x:Name="SettingsButton"
-                        Text="&#xF66A;"
+                        Text="&#xf5d6;"
                         Command="{Binding SettingsCommand}"
                         Style="{StaticResource MaterialButton}"
                         Grid.Column="2" />
