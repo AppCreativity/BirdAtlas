@@ -58,7 +58,7 @@ namespace BirdAtlas.Droid.Renderers
                 if(views != null && views.Any())
                 {
                     var bottomView = views.FirstOrDefault() as BottomNavigationView;
-                    //bottomView.Visibility = customTabbed.IsHidden ? ViewStates.Invisible : ViewStates.Visible;
+                    bottomView.Visibility = customTabbed.IsHidden ? ViewStates.Invisible : ViewStates.Visible;
                     //bottomView.TranslationY = customTabbed.IsHidden ? bottomView.TranslationY + bottomView.Height : bottomView.TranslationY - bottomView.Height;
 
                     //TODO: Glenn - Hmm hiding bottom tabbar leaves empty space in Android
