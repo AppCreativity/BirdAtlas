@@ -13,4 +13,11 @@
         None,
         Settings
     }
+
+    public enum PageTabMode
+    {
+        None,
+        Floating,
+        Normal
+    }
 }
