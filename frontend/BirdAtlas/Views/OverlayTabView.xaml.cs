@@ -9,13 +9,22 @@ namespace BirdAtlas.Views
             InitializeComponent();
         }
 
-        private void Handle_Clicked(object sender, System.EventArgs e)
+        private void OnDiscoveryClicked(object sender, System.EventArgs e)
         {
             if(App.Current.MainPage is TabbedPage mainPage && sender is Button button)
-            {
-                var tab = int.Parse(button.Text[button.Text.Length -1].ToString());
-                mainPage.CurrentPage = mainPage.Children[tab];
-            }
+                mainPage.CurrentPage = mainPage.Children[0];
+        }
+
+        private void OnSearchClicked(object sender, System.EventArgs e)
+        {
+            if (App.Current.MainPage is TabbedPage mainPage && sender is Button button)
+                mainPage.CurrentPage = mainPage.Children[1];
+        }
+
+        private void OnBookmarksClicked(object sender, System.EventArgs e)
+        {
+            if (App.Current.MainPage is TabbedPage mainPage && sender is Button button)
+                mainPage.CurrentPage = mainPage.Children[2];
         }
     }
 }

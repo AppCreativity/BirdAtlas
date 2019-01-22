@@ -18,17 +18,20 @@
         <On Platform="iOS" Value="Montserrat-SemiBold" />
         <On Platform="Android" Value="Montserrat-SemiBold.ttf#Montserrat SemiVet" />
     </OnPlatform>
+    
+    <Style x:Key="TransparentButton" TargetType="Button">
+        <Setter Property="BorderColor" Value="Transparent" />
+        <Setter Property="BackgroundColor" Value="Transparent" />
+        <Setter Property="VerticalOptions" Value="FillAndExpand" />
+        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
+    </Style>
 
-    <Style x:Key="MaterialButton" TargetType="Button">
+    <Style x:Key="MaterialButton" TargetType="Button" BasedOn="{StaticResource TransparentButton}">
         <Setter Property="FontFamily" Value="{StaticResource MaterialFontFamily}" />
         <Setter Property="FontSize" Value="20" />
         <Setter Property="TextColor" Value="Black" />
         <Setter Property="WidthRequest" Value="50" />
         <Setter Property="HeightRequest" Value="50" />
-        <Setter Property="VerticalOptions" Value="FillAndExpand" />
-        <Setter Property="HorizontalOptions" Value="FillAndExpand" />
-        <Setter Property="BorderColor" Value="Transparent" />
-        <Setter Property="BackgroundColor" Value="Transparent" />
     </Style>
     
     <Style x:Key="CategoryLabel" TargetType="Label">
