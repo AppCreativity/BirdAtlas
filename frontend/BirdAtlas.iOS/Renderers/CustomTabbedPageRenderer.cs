@@ -28,8 +28,6 @@ namespace BirdAtlas.iOS.Renderers
             var y = (result.Height - (55 + 20));
 
             _overlayTabView.Frame = new CGRect(x, y, 250, 55);
-
-            //View.AddSubview(_overlayTabView);
         }
 
         private void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
