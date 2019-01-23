@@ -24,6 +24,9 @@ namespace BirdAtlas.Views
         public static readonly BindableProperty PageActionProperty =
             BindableProperty.Create(nameof(PageMode), typeof(PageAction), typeof(BasePage), PageAction.None, propertyChanged: OnPageActionPropertyChanged);
 
+        public static readonly BindableProperty PageTabModeProperty =
+            BindableProperty.Create(nameof(PageTabMode), typeof(PageTabMode), typeof(BasePage), PageTabMode.None, propertyChanged: OnPageTabModePropertyChanged);
+
         public string BasePageTitle
         {
             get => (string)GetValue(BasePageTitleProperty);
@@ -48,22 +51,34 @@ namespace BirdAtlas.Views
             set => SetValue(PageActionProperty, value);
         }
 
+        public PageTabMode PageTabMode
+        {
+            get => (PageTabMode)GetValue(PageTabModeProperty);
+            set => SetValue(PageTabModeProperty, value);
+        }
+
         private static void OnBasePageTitleChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            if (bindable != null && bindable is BasePage basePage)
+            if (bindable is BasePage basePage)
                 basePage.TitleLabel.Text = (string)newValue;
         }
 
         private static void OnPageModePropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            if (bindable != null && bindable is BasePage basePage)
+            if (bindable is BasePage basePage)
                 basePage.SetPageMode((PageMode)newValue);
         }
 
         private static void OnPageActionPropertyChanged(BindableObject bindable, object oldValue, object newValue)
         {
-            if (bindable != null && bindable is BasePage basePage)
+            if (bindable is BasePage basePage)
                 basePage.SetPageAction((PageAction)newValue);
+        }
+
+        private static void OnPageTabModePropertyChanged(BindableObject bindable, object oldValue, object newValue)
+        {
+            if (bindable is BasePage basePage)
+                basePage.SetPageTabMode((PageTabMode)newValue);
         }
         #endregion
 
@@ -90,6 +105,8 @@ namespace BirdAtlas.Views
 
             var mainPage = App.Current.MainPage as CustomTabbedPage;
             mainPage.IsHidden = HideTabbar;
+
+            SetPageTabMode(PageTabMode);
         }
 
         private void SetPageMode(PageMode pageMode)
@@ -133,6 +150,12 @@ namespace BirdAtlas.Views
                     SettingsButton.IsVisible = false;
                     break;
             }
+        }
+
+        private void SetPageTabMode(PageTabMode pageTabMode)
+        {
+            if(App.Current.MainPage is CustomTabbedPage mainPage)
+                mainPage.PageTabMode = pageTabMode;
         }
     }
 }

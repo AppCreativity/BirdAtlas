@@ -5,7 +5,7 @@
                 x:Class="BirdAtlas.Views.DiscoverPage"
                 xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
                 BasePageTitle="Discover"
-                HideTabbar="true"
+                HideTabbar="true" PageTabMode="Floating"
                 PageAction="Settings">
     <views:BasePage.BasePageContent>
         <ScrollView Margin="0,24,0,12">

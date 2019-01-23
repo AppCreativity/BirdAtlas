@@ -13,30 +13,43 @@ namespace BirdAtlas.iOS.Renderers
 {
     public class CustomTabbedPageRenderer : TabbedRenderer
     {
+        private UIView _overlayTabView;
+
         protected override void OnElementChanged(VisualElementChangedEventArgs e)
         {
             base.OnElementChanged(e);
             Element.PropertyChanged += OnElementPropertyChanged;
 
             var rect = new CGRect(0, 0, 250, 55);
-            var overlayTabView = Helpers.ConvertFormsToNative(new OverlayTabView(), rect);
+            _overlayTabView = Helpers.ConvertFormsToNative(new OverlayTabView(), rect);
 
             var result = UIScreen.MainScreen.Bounds;
             var x = (result.Width / 2) - 125;
             var y = (result.Height - (55 + 20));
 
-            overlayTabView.Frame = new CGRect(x, y, 250, 55);
+            _overlayTabView.Frame = new CGRect(x, y, 250, 55);
 
-            View.AddSubview(overlayTabView);
+            //View.AddSubview(_overlayTabView);
         }
 
         private void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            if(e.PropertyName.Equals(CustomTabbedPage.IsHiddenProperty.PropertyName))
+            if (Element is CustomTabbedPage customTabbed)
             {
-                if(Element is CustomTabbedPage customTabbed)
-                {
+                if (e.PropertyName.Equals(CustomTabbedPage.IsHiddenProperty.PropertyName))
                     TabBar.Hidden = customTabbed.IsHidden;
+
+                if (e.PropertyName.Equals(CustomTabbedPage.PageTabModeProperty.PropertyName))
+                {
+                    switch(customTabbed.PageTabMode)
+                    {
+                        case Models.PageTabMode.Floating:
+                            View.AddSubview(_overlayTabView);
+                            break;
+                        case Models.PageTabMode.None:
+                            _overlayTabView.RemoveFromSuperview();
+                            break;
+                    }
                 }
             }
         }
