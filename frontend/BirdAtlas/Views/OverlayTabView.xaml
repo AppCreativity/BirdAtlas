@@ -26,7 +26,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             
-            <controls:ContentViewRoundedCorners BackgroundColor="#ededed"
+            <controls:ContentViewRoundedCorners BackgroundColor="#f2f2f2"
                                                 CornerRadius="25" Opacity="0.85"
                                                 VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" 
                                                 Grid.Column="0" Grid.ColumnSpan="3" />
@@ -35,19 +35,19 @@
                          Grid.Column="0">
                 <Image x:Name="Tab1" Source="ic_discover.png" Style="{StaticResource TabbarImage}" />
             </StackLayout>
-            <Button Style="{StaticResource TransparentButton}" Grid.Column="0" Clicked="OnDiscoveryClicked" />
+            <Button BackgroundColor="Yellow" Style="{StaticResource TransparentButton}" Grid.Column="0" Clicked="OnDiscoveryClicked" />
             
             <StackLayout Style="{StaticResource TabbarLayout}"
                          Grid.Column="1">
                 <Image x:Name="Tab2" Source="ic_search.png" Style="{StaticResource TabbarImage}" />
             </StackLayout>
-            <Button Style="{StaticResource TransparentButton}" Grid.Column="1" Clicked="OnSearchClicked" />
+            <Button BackgroundColor="Red" Style="{StaticResource TransparentButton}" Grid.Column="1" Clicked="OnSearchClicked" />
             
             <StackLayout Style="{StaticResource TabbarLayout}"
                          Grid.Column="2">
                 <Image x:Name="Tab3" Source="ic_bookmarks.png" Style="{StaticResource TabbarImage}" />
             </StackLayout>
-            <Button Style="{StaticResource TransparentButton}" Grid.Column="2" Clicked="OnBookmarksClicked" />
+            <Button BackgroundColor="Blue" Style="{StaticResource TransparentButton}" Grid.Column="2" Clicked="OnBookmarksClicked" />
         </Grid>
     </ContentView.Content>
 </ContentView>

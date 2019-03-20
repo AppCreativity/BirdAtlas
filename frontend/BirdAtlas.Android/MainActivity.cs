@@ -7,6 +7,7 @@ using Android.Views;
 using Android.Widget;
 using Android.OS;
 using Sharpnado.Presentation.Forms.Droid;
+using Plugin.CurrentActivity;
 
 namespace BirdAtlas.Droid
 {
@@ -21,7 +22,7 @@ namespace BirdAtlas.Droid
             base.OnCreate(savedInstanceState);
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             SharpnadoInitializer.Initialize();
-
+            CrossCurrentActivity.Current.Init(this, savedInstanceState);
             LoadApplication(new App());
         }
     }

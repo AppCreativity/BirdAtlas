@@ -6,7 +6,10 @@ using Android.Content;
 using Android.Support.Design.Widget;
 using Android.Views;
 using BirdAtlas.Controls;
+using BirdAtlas.Droid.Framework;
 using BirdAtlas.Droid.Renderers;
+using BirdAtlas.Views;
+using Plugin.CurrentActivity;
 using Xamarin.Forms;
 using Xamarin.Forms.Platform.Android;
 using Xamarin.Forms.Platform.Android.AppCompat;
@@ -44,8 +47,18 @@ namespace BirdAtlas.Droid.Renderers
 
     public class CustomTabbedPageRenderer : TabbedPageRenderer
     {
+        private Android.Views.View _overlayView;
+
         public CustomTabbedPageRenderer(Context context) : base(context)
         {
+        }
+
+        protected override void OnElementChanged(ElementChangedEventArgs<TabbedPage> e)
+        {
+            base.OnElementChanged(e);
+
+            var rect = new Rectangle(0, 0, 250, 55);
+            _overlayView = Helpers.ConvertFormsToNative(new OverlayTabView(), this.Context, rect);
         }
 
         protected override void OnElementPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -54,18 +67,23 @@ namespace BirdAtlas.Droid.Renderers
 
             if (e.PropertyName.Equals(CustomTabbedPage.IsHiddenProperty.PropertyName) && Element is CustomTabbedPage customTabbed)
             {
+                //var rootView = CrossCurrentActivity.Current.Activity.Window.DecorView.RootView;
+                //((ViewGroup)rootView).AddView(_overlayView);
+
                 var views = ViewGroup.GetViewsByType(typeof(BottomNavigationView));
                 if(views != null && views.Any())
                 {
                     var bottomView = views.FirstOrDefault() as BottomNavigationView;
-                    bottomView.Visibility = customTabbed.IsHidden ? ViewStates.Invisible : ViewStates.Visible;
+                    ((ViewGroup)bottomView.Parent).AddView(_overlayView);
+
+                    //bottomView.Visibility = customTabbed.IsHidden ? ViewStates.Invisible : ViewStates.Visible;
                     //bottomView.TranslationY = customTabbed.IsHidden ? bottomView.TranslationY + bottomView.Height : bottomView.TranslationY - bottomView.Height;
 
                     //TODO: Glenn - Hmm hiding bottom tabbar leaves empty space in Android
-                    if (customTabbed.IsHidden)
-                        bottomView.Animate().TranslationY(bottomView.Height);
-                    else
-                        bottomView.Animate().TranslationY(0);
+                    //if (customTabbed.IsHidden)
+                    //    bottomView.Animate().TranslationY(bottomView.Height);
+                    //else
+                        //bottomView.Animate().TranslationY(0);
                 }
             }
         }
