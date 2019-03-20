@@ -3,7 +3,8 @@
     <DataTemplate x:Key="StoryListItemTemplate">
         <ViewCell>
             <Grid Padding="0,0,0,20">
-                <Frame Padding="0" CornerRadius="10">
+                <Frame Padding="0" CornerRadius="10" HasShadow="false"
+                       BorderColor="LightGray">
                     <Grid Padding="0" RowSpacing="0">
                         <Grid.RowDefinitions>
                             <RowDefinition Height="4*" />
