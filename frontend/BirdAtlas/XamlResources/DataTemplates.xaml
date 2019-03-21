@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="BirdAtlas.XamlResources.DataTemplates">
+<ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                    xmlns:controls="clr-namespace:BirdAtlas.Controls;assembly=BirdAtlas"
+                    x:Class="BirdAtlas.XamlResources.DataTemplates">
     <DataTemplate x:Key="StoryListItemTemplate">
         <ViewCell>
             <Grid Padding="0,0,0,20">
@@ -10,8 +13,8 @@
                             <RowDefinition Height="4*" />
                             <RowDefinition Height="3*" />
                         </Grid.RowDefinitions>
-                        <Image Aspect="AspectFill" Grid.Row="0" HorizontalOptions="Fill" VerticalOptions="Fill" 
-                               Source="{Binding ImageUrl}" />
+                        <controls:CurvedCornersImage Aspect="AspectFill" Grid.Row="0" HorizontalOptions="Fill" VerticalOptions="Fill"
+                                                     Source="{Binding ImageUrl}" />
                         <StackLayout VerticalOptions="CenterAndExpand" Grid.Row="1" Padding="12">
                             <Label Text="{Binding Category}" Style="{StaticResource StoryCategoryLabel}" />
                             <Label Text="{Binding Title}" Style="{StaticResource StoryTitleLabel}" />
