@@ -22,7 +22,7 @@ namespace BirdAtlas.Views
             BindableProperty.Create(nameof(PageMode), typeof(PageMode), typeof(BasePage), PageMode.None, propertyChanged: OnPageModePropertyChanged);
 
         public static readonly BindableProperty PageActionProperty =
-            BindableProperty.Create(nameof(PageMode), typeof(PageAction), typeof(BasePage), PageAction.None, propertyChanged: OnPageActionPropertyChanged);
+            BindableProperty.Create(nameof(PageAction), typeof(PageAction), typeof(BasePage), PageAction.None, propertyChanged: OnPageActionPropertyChanged);
 
         public string BasePageTitle
         {
