@@ -62,10 +62,19 @@ namespace BirdAtlas.Droid.Renderers
                     //bottomView.TranslationY = customTabbed.IsHidden ? bottomView.TranslationY + bottomView.Height : bottomView.TranslationY - bottomView.Height;
 
                     //TODO: Glenn - Hmm hiding bottom tabbar leaves empty space in Android
-                    if(customTabbed.IsHidden)
+                    if (customTabbed.IsHidden)
+                    {
                         bottomView.Animate().TranslationY(bottomView.Height);
+                    }
                     else
+                    {
                         bottomView.Animate().TranslationY(0);
+
+                        //TODO: Glenn - check : https://github.com/xamarin/Xamarin.Forms/issues/4222
+                        //var parameters = bottomView.LayoutParameters;
+                        //parameters.Height = 0;
+                        //bottomView.LayoutParameters = parameters;
+                    }
                 }
             }
         }
