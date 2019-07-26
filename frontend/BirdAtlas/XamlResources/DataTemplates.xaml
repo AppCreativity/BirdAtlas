@@ -8,7 +8,7 @@
         <ViewCell>
             <Grid Padding="0,0,0,20">
                 <yummy:PancakeView BackgroundColor="White"
-                                   BorderIsDashed="true"
+                                   BorderThickness="1" BorderColor="LightGray"
                                    CornerRadius="20,20,20,20"
                                    HorizontalOptions="FillAndExpand"
                                    Elevation="3"
