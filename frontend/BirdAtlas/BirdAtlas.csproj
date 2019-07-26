@@ -13,6 +13,7 @@
     <PackageReference Include="Xamarin.Forms" Version="4.1.0.555618" />
     <PackageReference Include="Prism.DryIoc.Forms" Version="7.1.0.431" />
     <PackageReference Include="Sharpnado.Forms.HorizontalListView" Version="1.2.0" />
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="1.1.5" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
