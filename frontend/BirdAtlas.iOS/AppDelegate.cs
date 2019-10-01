@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-
-using Foundation;
+﻿using Foundation;
 using Sharpnado.Presentation.Forms.iOS;
 using UIKit;
+using Xamarin.Forms;
 
 namespace BirdAtlas.iOS
 {
@@ -23,6 +20,7 @@ namespace BirdAtlas.iOS
         //
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
+            Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init();
             SharpnadoInitializer.Initialize();
 

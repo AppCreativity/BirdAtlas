@@ -26,10 +26,21 @@
                            HorizontalOptions="EndAndExpand"
                            Grid.Column="1" />
                 </Grid>
+
+                <!--<CollectionView x:Name="StoryCollectionView"
+                                ItemsSource="{Binding Stories}"
+                                ItemTemplate="{StaticResource StoryListItemTemplate}"
+                                HeightRequest="200"
+                                Margin="0,0,0,12">
+                    <CollectionView.ItemsLayout>
+                        <ListItemsLayout ItemSpacing="20"
+                                         Orientation="Horizontal" />
+                    </CollectionView.ItemsLayout>
+                </CollectionView>-->
                 
                 <renderedViews:HorizontalListView x:Name="StoryListView"
                                                   Margin="0,12,0,0" CollectionPadding="24,0,24,0"
-                                                  ItemSpacing="10" ItemHeight="200" ItemWidth="180" SnapStyle="None"
+                                                  ItemSpacing="20" ItemHeight="200" ItemWidth="180" SnapStyle="None"
                                                   ItemsSource="{Binding Stories}"
                                                   ItemTemplate="{StaticResource StoryListItemTemplate}" />
                 

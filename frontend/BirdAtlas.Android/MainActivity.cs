@@ -1,12 +1,8 @@
-﻿using System;
-
-using Android.App;
+﻿using Android.App;
 using Android.Content.PM;
-using Android.Runtime;
-using Android.Views;
-using Android.Widget;
 using Android.OS;
 using Sharpnado.Presentation.Forms.Droid;
+using Xamarin.Forms;
 
 namespace BirdAtlas.Droid
 {
@@ -19,6 +15,7 @@ namespace BirdAtlas.Droid
             ToolbarResource = Resource.Layout.Toolbar;
 
             base.OnCreate(savedInstanceState);
+            Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
             SharpnadoInitializer.Initialize();
 

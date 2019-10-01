@@ -6,50 +6,32 @@
                     x:Class="BirdAtlas.XamlResources.DataTemplates">
     <DataTemplate x:Key="StoryListItemTemplate">
         <ViewCell>
-            <Grid Padding="0,0,0,20">
-                <yummy:PancakeView BackgroundColor="White"
-                                   BorderThickness="1" BorderColor="LightGray"
-                                   CornerRadius="20,20,20,20"
-                                   HorizontalOptions="FillAndExpand"
-                                   Elevation="3"
-                                   HeightRequest="150">
-                    <Grid Padding="0"
-                          RowSpacing="0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="4*" />
-                            <RowDefinition Height="3*" />
-                        </Grid.RowDefinitions>
-                        <Image Aspect="AspectFill"
-                                                     Grid.Row="0"
-                                                     HorizontalOptions="Fill"
-                                                     VerticalOptions="Fill"
-                                                     Source="{Binding ImageUrl}" />
-                        <StackLayout VerticalOptions="CenterAndExpand"
-                                     Grid.Row="1"
-                                     Padding="12">
-                            <Label Text="{Binding Category}"
-                                   Style="{StaticResource StoryCategoryLabel}" />
-                            <Label Text="{Binding Title}"
-                                   Style="{StaticResource StoryTitleLabel}" />
-                        </StackLayout>
-                    </Grid>
-                </yummy:PancakeView>
-                <!--<Frame Padding="0" CornerRadius="10" HasShadow="false"
-                       BorderColor="LightGray">
-                    <Grid Padding="0" RowSpacing="0">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="4*" />
-                            <RowDefinition Height="3*" />
-                        </Grid.RowDefinitions>
-                        <controls:CurvedCornersImage Aspect="AspectFill" Grid.Row="0" HorizontalOptions="Fill" VerticalOptions="Fill"
-                                                     Source="{Binding ImageUrl}" />
-                        <StackLayout VerticalOptions="CenterAndExpand" Grid.Row="1" Padding="12">
-                            <Label Text="{Binding Category}" Style="{StaticResource StoryCategoryLabel}" />
-                            <Label Text="{Binding Title}" Style="{StaticResource StoryTitleLabel}" />
-                        </StackLayout>
-                    </Grid>
-                </Frame>-->
+        <yummy:PancakeView BackgroundColor="White"
+                           BorderThickness="0.7" BorderColor="LightGray"
+                           CornerRadius="10,10,10,10"
+                           HorizontalOptions="FillAndExpand"
+                           Elevation="2"
+                           WidthRequest="160">                           
+            <Grid Padding="0"
+                  RowSpacing="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="4*" />
+                    <RowDefinition Height="3*" />
+                </Grid.RowDefinitions>
+                <Image Aspect="AspectFill"
+                       Grid.Row="0"
+                       Source="{Binding ImageUrl}"
+                       HeightRequest="40" WidthRequest="160" />
+                <StackLayout VerticalOptions="CenterAndExpand"
+                             Grid.Row="1"
+                             Padding="12">
+                    <Label Text="{Binding Category}"
+                            Style="{StaticResource StoryCategoryLabel}" />
+                    <Label Text="{Binding Title}"
+                            Style="{StaticResource StoryTitleLabel}" />
+                </StackLayout>
             </Grid>
+        </yummy:PancakeView>
         </ViewCell>
     </DataTemplate>
 </ResourceDictionary>

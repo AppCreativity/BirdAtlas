@@ -46,11 +46,12 @@
         <Setter Property="FontFamily" Value="{StaticResource MontserratMediumFontFamily}" />
         <Setter Property="FontSize" Value="11" />
         <Setter Property="TextColor" Value="{StaticResource Dark}" />
+        <Setter Property="Opacity" Value="0.5" />
     </Style>
     
     <Style x:Key="StoryTitleLabel" TargetType="Label">
         <Setter Property="FontFamily" Value="{StaticResource MontserratMediumFontFamily}" />
         <Setter Property="FontSize" Value="13" />
-        <Setter Property="TextColor" Value="{StaticResource Dark}" />
+        <Setter Property="TextColor" Value="{StaticResource Dark}" />        
     </Style>    
 </ResourceDictionary>
