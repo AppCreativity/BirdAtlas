@@ -17,9 +17,9 @@ namespace BirdAtlas.iOS.Renderers
 
         private void OnElementPropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
         {
-            if(e.PropertyName.Equals(CustomTabbedPage.IsHiddenProperty.PropertyName))
+            if (e.PropertyName.Equals(CustomTabbedPage.IsHiddenProperty.PropertyName))
             {
-                if(Element is CustomTabbedPage customTabbed)
+                if (Element is CustomTabbedPage customTabbed)
                 {
                     TabBar.Hidden = customTabbed.IsHidden;
                 }
