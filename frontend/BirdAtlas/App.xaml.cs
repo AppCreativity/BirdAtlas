@@ -5,6 +5,7 @@ using Prism;
 using Prism.DryIoc;
 using Prism.Ioc;
 using BirdAtlas.ViewModels;
+using Sharpnado.Presentation.Forms.CustomViews.Tabs;
 
 [assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace BirdAtlas
@@ -21,18 +22,15 @@ namespace BirdAtlas
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync("MainPage");
+            await NavigationService.NavigateAsync(nameof(StartPage));
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             //containerRegistry.RegisterForNavigation<BasePage, BaseViewModel>();
-            containerRegistry.RegisterForNavigation<MainPage, MainViewModel>();
-            containerRegistry.RegisterForNavigation<DiscoverPage, DiscoverViewModel>();
-            containerRegistry.RegisterForNavigation<SearchPage, SearchViewModel>();
+            containerRegistry.RegisterForNavigation<StartPage>();
             containerRegistry.RegisterForNavigation<SettingsPage, SettingsViewModel>();
-            containerRegistry.RegisterForNavigation<BookmarkPage, BookmarkViewModel>();
         }
     }
 }

@@ -1,12 +1,9 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<views:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
-                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                xmlns:views="clr-namespace:BirdAtlas.Views"
-                x:Class="BirdAtlas.Views.DiscoverPage"
-                xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
-                BasePageTitle="Discover"
-                PageAction="Settings">
-    <views:BasePage.BasePageContent>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentView xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
+             x:Class="BirdAtlas.Views.TabViews.DiscoverTabView">
+    <ContentView.Content>
         <ScrollView Margin="0,24,0,12">
             <StackLayout Orientation="Vertical">
                 <Grid RowSpacing="0" ColumnSpacing="0"
@@ -70,5 +67,5 @@
                 </Grid>                
             </StackLayout>
         </ScrollView>
-    </views:BasePage.BasePageContent>
-</views:BasePage>
+    </ContentView.Content>
+</ContentView>

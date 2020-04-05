@@ -23,8 +23,12 @@
     <Folder Include="Controls\" />
     <Folder Include="Models\" />
     <Folder Include="XamlResources\" />
+    <Folder Include="Views\TabViews\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Views\MyPage.xaml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Remove="Views\DiscoverPage.xaml" />
   </ItemGroup>
 </Project>

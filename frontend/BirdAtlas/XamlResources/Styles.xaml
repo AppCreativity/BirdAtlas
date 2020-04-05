@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                    x:Class="BirdAtlas.XamlResources.Styles">
+                    x:Class="BirdAtlas.XamlResources.Styles"
+                    xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms">
+
     <Color x:Key="Dark">#262d3a</Color>
+    <Color x:Key="Accent">#FF0266</Color>
     
     <OnPlatform x:Key="MaterialFontFamily" x:TypeArguments="x:String">
         <On Platform="iOS" Value="Material Design Icons" />
@@ -53,5 +56,14 @@
         <Setter Property="FontFamily" Value="{StaticResource MontserratMediumFontFamily}" />
         <Setter Property="FontSize" Value="13" />
         <Setter Property="TextColor" Value="{StaticResource Dark}" />        
-    </Style>    
+    </Style>
+
+    <Style x:Key="BottomTabStyle" TargetType="tabs:BottomTabItem">
+        <Setter Property="SelectedTabColor" Value="{StaticResource Accent}" />
+        <Setter Property="UnselectedLabelColor" Value="Gray" />
+        <Setter Property="UnselectedIconColor" Value="LightGray" />
+        <!--<Setter Property="FontFamily" Value="{StaticResource FontLight}" />-->
+        <!--<Setter Property="LabelSize" Value="14" />-->
+        <Setter Property="IconSize" Value="28" />
+    </Style>
 </ResourceDictionary>
