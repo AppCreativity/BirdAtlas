@@ -22,15 +22,15 @@ namespace BirdAtlas
         {
             InitializeComponent();
 
-            await NavigationService.NavigateAsync(nameof(StartPage));
+            await NavigationService.NavigateAsync("NavigationPage/StartPage");
         }
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
             containerRegistry.RegisterForNavigation<NavigationPage>();
             //containerRegistry.RegisterForNavigation<BasePage, BaseViewModel>();
-            containerRegistry.RegisterForNavigation<StartPage>();
-            containerRegistry.RegisterForNavigation<SettingsPage, SettingsViewModel>();
+            containerRegistry.RegisterForNavigation<StartPage, StartViewModel>();
+            //containerRegistry.RegisterForNavigation<SettingsPage, SettingsViewModel>();
         }
     }
 }
