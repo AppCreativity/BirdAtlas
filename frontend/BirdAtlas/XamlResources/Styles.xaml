@@ -5,7 +5,6 @@
                     xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms">
 
     <Color x:Key="Dark">#262d3a</Color>
-    <Color x:Key="Accent">#FF0266</Color>
     
     <OnPlatform x:Key="MaterialFontFamily" x:TypeArguments="x:String">
         <On Platform="iOS" Value="Material Design Icons" />
@@ -58,12 +57,8 @@
         <Setter Property="TextColor" Value="{StaticResource Dark}" />        
     </Style>
 
-    <Style x:Key="BottomTabStyle" TargetType="tabs:BottomTabItem">
-        <Setter Property="SelectedTabColor" Value="{StaticResource Accent}" />
-        <Setter Property="UnselectedLabelColor" Value="Gray" />
-        <Setter Property="UnselectedIconColor" Value="LightGray" />
-        <!--<Setter Property="FontFamily" Value="{StaticResource FontLight}" />-->
-        <!--<Setter Property="LabelSize" Value="14" />-->
-        <Setter Property="IconSize" Value="28" />
+    <Style TargetType="tabs:BottomTabItem">
+        <Setter Property="IconSize" Value="21" />
+        <Setter Property="IsTextVisible" Value="False" />
     </Style>
 </ResourceDictionary>

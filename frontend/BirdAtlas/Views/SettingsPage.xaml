@@ -4,7 +4,6 @@
                 xmlns:views="clr-namespace:BirdAtlas.Views"
                 x:Class="BirdAtlas.Views.SettingsPage"
                 BasePageTitle="Settings"
-                HideTabbar="true"
                 PageMode="Navigate">
     <views:BasePage.BasePageContent>
     </views:BasePage.BasePageContent>

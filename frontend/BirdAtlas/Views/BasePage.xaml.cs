@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using BirdAtlas.Controls;
+﻿using System.Collections.Generic;
 using BirdAtlas.Framework;
 using BirdAtlas.Models;
 using Xamarin.Forms;
@@ -15,9 +13,6 @@ namespace BirdAtlas.Views
         public static readonly BindableProperty BasePageTitleProperty =
             BindableProperty.Create(nameof(BasePageTitle), typeof(string), typeof(BasePage), string.Empty, defaultBindingMode: BindingMode.OneWay, propertyChanged: OnBasePageTitleChanged);
 
-        public static readonly BindableProperty HideTabbarProperty =
-            BindableProperty.Create(nameof(HideTabbar), typeof(bool), typeof(BasePage), false);
-
         public static readonly BindableProperty PageModeProperty =
             BindableProperty.Create(nameof(PageMode), typeof(PageMode), typeof(BasePage), PageMode.None, propertyChanged: OnPageModePropertyChanged);
 
@@ -28,12 +23,6 @@ namespace BirdAtlas.Views
         {
             get => (string)GetValue(BasePageTitleProperty);
             set => SetValue(BasePageTitleProperty, value);
-        }
-
-        public bool HideTabbar
-        {
-            get => (bool)GetValue(HideTabbarProperty);
-            set => SetValue(HideTabbarProperty, value);
         }
 
         public PageMode PageMode
@@ -82,14 +71,6 @@ namespace BirdAtlas.Views
 
             //Fix top page marging requirement depending on the current device running the app
             StatusRowDefinition.Height = DependencyService.Get<IDeviceInfo>().StatusbarHeight;
-        }
-
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
-
-            var mainPage = App.Current.MainPage as CustomTabbedPage;
-            mainPage.IsHidden = HideTabbar;
         }
 
         private void SetPageMode(PageMode pageMode)

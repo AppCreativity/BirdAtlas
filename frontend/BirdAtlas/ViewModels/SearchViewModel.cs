@@ -1,9 +1,11 @@
 ﻿using System;
+using Prism.Navigation;
+
 namespace BirdAtlas.ViewModels
 {
-    public class SearchViewModel
+    public class SearchViewModel : BaseViewModel
     {
-        public SearchViewModel()
+        public SearchViewModel(INavigationService navigationService) : base(navigationService)
         {
         }
     }

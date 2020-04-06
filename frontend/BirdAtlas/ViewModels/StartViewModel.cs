@@ -4,10 +4,8 @@ using Prism.Navigation;
 
 namespace BirdAtlas.ViewModels
 {
-    public class StartViewModel : BindableBase, INavigationAware
+    public class StartViewModel : BaseViewModel
     {
-        protected INavigationService NavigationService { get; private set; }
-
         private int _selectedViewModelIndex = 0;
         public int SelectedViewModelIndex
         {
@@ -15,21 +13,15 @@ namespace BirdAtlas.ViewModels
             set => SetProperty(ref _selectedViewModelIndex, value);
         }
 
-        public StartViewModel(INavigationService navigationService)
-        {
-            NavigationService = navigationService;
-        }
+        public DiscoverViewModel DiscoverViewModel { get; }
+        public SearchViewModel SearchViewModel { get; }
+        public BookmarkViewModel BookmarkViewModel { get; }
 
-        public void OnNavigatedFrom(INavigationParameters parameters)
+        public StartViewModel(INavigationService navigationService) : base(navigationService)
         {
-        }
-
-        public void OnNavigatedTo(INavigationParameters parameters)
-        {
-        }
-
-        public void OnNavigatingTo(INavigationParameters parameters)
-        {
+            DiscoverViewModel = new DiscoverViewModel(NavigationService);
+            SearchViewModel = new SearchViewModel(NavigationService);
+            BookmarkViewModel = new BookmarkViewModel(NavigationService);
         }
     }
 }

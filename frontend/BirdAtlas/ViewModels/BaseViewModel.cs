@@ -14,7 +14,7 @@ namespace BirdAtlas.ViewModels
         public DelegateCommand NavigateBackCommand => _navigateBackCommand ?? (_navigateBackCommand = new DelegateCommand(async () => await NavigationService.GoBackAsync()));
 
         private DelegateCommand _settingsCommand;
-        public DelegateCommand SettingsCommand => _settingsCommand ?? (_settingsCommand = new DelegateCommand(async () => await NavigationService.NavigateAsync(nameof(SettingsPage))));
+        public DelegateCommand SettingsCommand => _settingsCommand ?? (_settingsCommand = new DelegateCommand(async () => await NavigationService.NavigateAsync("SettingsPage")));
 
         public BaseViewModel(INavigationService navigationService)
         {
