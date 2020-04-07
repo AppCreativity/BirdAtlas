@@ -2,6 +2,7 @@
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
+             xmlns:models="clr-namespace:BirdAtlas.Models"
              x:Class="BirdAtlas.Views.TabViews.DiscoverTabView">
     <ContentView.Content>
         <ScrollView Margin="0,24,0,12">
@@ -65,6 +66,15 @@
                            HorizontalOptions="EndAndExpand"
                            Grid.Column="1" />
                 </Grid>
+
+                <StackLayout Orientation="Horizontal"
+                             Margin="24,10,0,0">
+                    <Label Text="Location:"
+                           Style="{StaticResource LocationLabel}" />
+                    <Label Text="{x:Static models:IconFont.MapMarker}" FontFamily="{StaticResource MaterialFontFamily}"
+                           TextColor="{StaticResource WarmBlue}"
+                           FontSize="18"/>
+                </StackLayout>
 
                 <FlexLayout x:Name="NearbyListView"
                             BindableLayout.ItemsSource="{Binding NearbyBirds}"

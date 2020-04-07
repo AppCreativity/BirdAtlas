@@ -96,7 +96,6 @@
     <None Include="Info.plist" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Framework\DeviceInfo.cs" />
-    <Compile Include="Renderers\CurvedCornersImageRenderer.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />
@@ -186,9 +185,9 @@
     <BundleResource Include="Resources\ic_bookmarks.png" />
     <BundleResource Include="Resources\ic_bookmarks%402x.png" />
     <BundleResource Include="Resources\ic_bookmarks%403x.png" />
+    <BundleResource Include="Resources\Montserrat-Regular.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Framework\" />
-    <Folder Include="Renderers\" />
   </ItemGroup>
 </Project>
