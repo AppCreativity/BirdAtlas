@@ -64,7 +64,17 @@
                            Style="{StaticResource CategoryLinkLabel}"
                            HorizontalOptions="EndAndExpand"
                            Grid.Column="1" />
-                </Grid>                
+                </Grid>
+
+                <FlexLayout x:Name="NearbyListView"
+                            BindableLayout.ItemsSource="{Binding NearbyBirds}"
+                            BindableLayout.ItemTemplate="{StaticResource NearbyListItemTemplate}"
+                            Wrap="Wrap"
+                            Direction="Row"
+                            JustifyContent="Start"
+                            AlignItems="Start"
+                            AlignContent="Start"
+                            Padding="20" />
             </StackLayout>
         </ScrollView>
     </ContentView.Content>

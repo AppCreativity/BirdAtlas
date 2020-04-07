@@ -51,10 +51,13 @@
         <Setter Property="Opacity" Value="0.5" />
     </Style>
     
-    <Style x:Key="StoryTitleLabel" TargetType="Label">
+    <Style x:Key="TitleLabel" TargetType="Label">
         <Setter Property="FontFamily" Value="{StaticResource MontserratMediumFontFamily}" />
         <Setter Property="FontSize" Value="13" />
         <Setter Property="TextColor" Value="{StaticResource Dark}" />        
+    </Style>
+
+    <Style x:Key="StoryTitleLabel" BasedOn="{StaticResource TitleLabel}" TargetType="Label">
     </Style>
 
     <Style TargetType="tabs:BottomTabItem">

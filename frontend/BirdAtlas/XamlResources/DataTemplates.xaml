@@ -8,13 +8,13 @@
         <ViewCell>
             <yummy:PancakeView BackgroundColor="White"
                                 BorderThickness="0.7" BorderColor="LightGray"
-                                CornerRadius="10,10,10,10"
+                                CornerRadius="8,8,8,8"
                                 HorizontalOptions="FillAndExpand"
                                 HasShadow="True"
                                 Elevation="2"
                                 WidthRequest="160">
                 <Grid Padding="0"
-                        RowSpacing="0">
+                      RowSpacing="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="4*" />
                         <RowDefinition Height="3*" />
@@ -34,5 +34,34 @@
                 </Grid>
             </yummy:PancakeView>
         </ViewCell>
+    </DataTemplate>
+
+    <DataTemplate x:Key="NearbyListItemTemplate">
+            <yummy:PancakeView BackgroundColor="White"
+                               BorderThickness="0.7" BorderColor="LightGray"
+                               CornerRadius="8,8,8,8"
+                               HorizontalOptions="FillAndExpand"
+                               HasShadow="True"
+                               Elevation="2"
+                               Margin="0,0,20,20"
+                               HeightRequest="200" WidthRequest="160">
+                <Grid Padding="0"
+                      RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="4*" />
+                        <RowDefinition Height="2*" />
+                    </Grid.RowDefinitions>
+                    <Image Aspect="AspectFill"
+                            Grid.Row="0"
+                            Source="{Binding ImageUrl}"
+                            HeightRequest="40" WidthRequest="160" />
+                    <StackLayout VerticalOptions="CenterAndExpand"
+                                    Grid.Row="1"
+                                    Padding="12">
+                        <Label Text="{Binding Name}"
+                               Style="{StaticResource TitleLabel}" />
+                    </StackLayout>
+                </Grid>
+            </yummy:PancakeView>
     </DataTemplate>
 </ResourceDictionary>
