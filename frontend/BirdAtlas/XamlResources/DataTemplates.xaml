@@ -7,12 +7,11 @@
     <DataTemplate x:Key="StoryListItemTemplate">
         <ViewCell>
             <yummy:PancakeView BackgroundColor="White"
-                                BorderThickness="0.7" BorderColor="LightGray"
-                                CornerRadius="8,8,8,8"
-                                HorizontalOptions="FillAndExpand"
-                                HasShadow="True"
-                                Elevation="2"
-                                WidthRequest="160">
+                               CornerRadius="8,8,8,8"
+                               HorizontalOptions="FillAndExpand"
+                               HasShadow="True"
+                               Sides="4"
+                               WidthRequest="160">
                 <Grid Padding="0"
                       RowSpacing="0">
                     <Grid.RowDefinitions>
@@ -38,12 +37,10 @@
 
     <DataTemplate x:Key="NearbyListItemTemplate">
             <yummy:PancakeView BackgroundColor="White"
-                               BorderThickness="0.7" BorderColor="LightGray"
                                CornerRadius="8,8,8,8"
                                HorizontalOptions="FillAndExpand"
                                HasShadow="True"
-                               Elevation="2"
-                               Margin="0,0,20,20"
+                               Margin="0,0,40,20"
                                HeightRequest="200" WidthRequest="160">
                 <Grid Padding="0"
                       RowSpacing="0">

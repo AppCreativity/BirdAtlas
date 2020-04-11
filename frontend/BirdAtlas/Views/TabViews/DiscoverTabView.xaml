@@ -6,7 +6,8 @@
              x:Class="BirdAtlas.Views.TabViews.DiscoverTabView">
     <ContentView.Content>
         <ScrollView Margin="0,24,0,12">
-            <StackLayout Orientation="Vertical">
+            <StackLayout Orientation="Vertical"
+                         Spacing="0">
                 <Grid RowSpacing="0" ColumnSpacing="0"
                       Margin="24,0,24,0">
                     <Grid.ColumnDefinitions>
@@ -26,8 +27,8 @@
                 </Grid>
                 
                 <renderedViews:HorizontalListView x:Name="StoryListView"
-                                                  Margin="0,12,0,0" CollectionPadding="24,0,24,0"
-                                                  ItemSpacing="20" ItemHeight="200" ItemWidth="180" SnapStyle="None"
+                                                  Margin="0,12,0,0" CollectionPadding="24,24,24,24"
+                                                  ItemSpacing="40" ItemHeight="200" ItemWidth="200" SnapStyle="None"
                                                   ItemsSource="{Binding Stories}"
                                                   ItemTemplate="{StaticResource StoryListItemTemplate}" />
                 
@@ -84,7 +85,7 @@
                             JustifyContent="Start"
                             AlignItems="Start"
                             AlignContent="Start"
-                            Padding="20" />
+                            Margin="20,20,5,20" />
             </StackLayout>
         </ScrollView>
     </ContentView.Content>
