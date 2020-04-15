@@ -37,9 +37,9 @@ namespace BirdAtlas.ViewModels
             Stories.Add(new Story() { Category = "The Wilds", Title = "Why we need to save the scavengers?", ImageUrl= "http://www.birdlife.org/sites/default/files/styles/full_620x295/public/news/rufous_hummingbird_selasphorus_rufus_c_ryan_bushby_1.jpg" });
             Stories.Add(new Story() { Category = "Science", Title = "Drunk birds? What is happening...", ImageUrl= "http://www.birdlife.org/sites/default/files/styles/full_620x295/public/news/shutterstock_459632779.jpg" });
 
-            Habitats.Add(new Habitat() { Name = "Grasslands", Amount = 290 });
-            Habitats.Add(new Habitat() { Name = "Tundra", Amount = 311 });
-            Habitats.Add(new Habitat() { Name = "Deserts", Amount = 307 });
+            Habitats.Add(new Habitat() { Name = "Forests", Type = HabitatType.Forest, Amount = 290 });
+            Habitats.Add(new Habitat() { Name = "Tundra", Type = HabitatType.Tundra, Amount = 311 });
+            Habitats.Add(new Habitat() { Name = "Deserts", Type = HabitatType.Desert, Amount = 307 });
 
             NearbyBirds.Add(new Nearby() { Name = "Eurasian hoopoe", ImageUrl = "http://www.birdlife.org/sites/default/files/styles/1600/public/news/european_turtle_dove_streptopelia_turtur_websitec_revital_salomon.jpg" });
             NearbyBirds.Add(new Nearby() { Name = "Short-eared owl", ImageUrl = "http://www.birdlife.org/sites/default/files/styles/full_620x295/public/news/little_spiderhunter_c_noicherrybeans_shutterstock_smaller_1.jpg" });

@@ -13,4 +13,15 @@
         None,
         Settings
     }
+
+    public enum HabitatType
+    {
+        Forest,
+        Grassland,
+        Tundra,
+        Desert,
+        Wetland,
+        Ocean,
+        UrbanSuburban
+    }
 }

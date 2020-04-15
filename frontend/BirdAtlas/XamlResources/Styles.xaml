@@ -5,7 +5,9 @@
                     xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms">
 
     <Color x:Key="Dark">#262d3a</Color>
+    <Color x:Key="LightBlue">#6688ff</Color>
     <Color x:Key="WarmBlue">#3d60db</Color>
+    <Color x:Key="DarkBlue">#1235b2</Color>
     
     <OnPlatform x:Key="MaterialFontFamily" x:TypeArguments="x:String">
         <On Platform="iOS" Value="Material Design Icons" />
@@ -50,6 +52,21 @@
         <Setter Property="FontSize" Value="16" />
     </Style>
 
+    <Style x:Key="LabelMontserratMedium11" TargetType="Label">
+        <Setter Property="FontFamily" Value="{StaticResource MontserratMediumFontFamily}" />
+        <Setter Property="FontSize" Value="11" />
+    </Style>
+
+    <Style x:Key="LabelMontserratMedium13" TargetType="Label">
+        <Setter Property="FontFamily" Value="{StaticResource MontserratMediumFontFamily}" />
+        <Setter Property="FontSize" Value="13" />
+    </Style>
+
+    <Style x:Key="LabelMontserratRegular14" TargetType="Label">
+        <Setter Property="FontFamily" Value="{StaticResource MontserratRegularFontFamily}" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+
     <!-- BasedOn Labels -->
     
     <Style x:Key="CategoryLabel" TargetType="Label" BasedOn="{StaticResource LabelMontserratSemiBold16}">
@@ -59,26 +76,20 @@
         <Setter Property="TextColor" Value="{StaticResource WarmBlue}" />
     </Style>
     
-    <Style x:Key="StoryCategoryLabel" TargetType="Label">
-        <Setter Property="FontFamily" Value="{StaticResource MontserratMediumFontFamily}" />
-        <Setter Property="FontSize" Value="11" />
+    <Style x:Key="StoryCategoryLabel" TargetType="Label" BasedOn="{StaticResource LabelMontserratMedium11}">
         <Setter Property="TextColor" Value="{StaticResource Dark}" />
         <Setter Property="Opacity" Value="0.5" />
     </Style>
     
-    <Style x:Key="TitleLabel" TargetType="Label">
-        <Setter Property="FontFamily" Value="{StaticResource MontserratMediumFontFamily}" />
-        <Setter Property="FontSize" Value="13" />
-        <Setter Property="TextColor" Value="{StaticResource Dark}" />        
-    </Style>
-
-    <Style x:Key="LocationLabel" TargetType="Label">
-        <Setter Property="FontFamily" Value="{StaticResource MontserratRegularFontFamily}" />
-        <Setter Property="FontSize" Value="14" />
+    <Style x:Key="TitleLabel" TargetType="Label" BasedOn="{StaticResource LabelMontserratMedium13}">
         <Setter Property="TextColor" Value="{StaticResource Dark}" />        
     </Style>
 
     <Style x:Key="StoryTitleLabel" BasedOn="{StaticResource TitleLabel}" TargetType="Label">
+    </Style>
+
+    <Style x:Key="LocationLabel" TargetType="Label" BasedOn="{StaticResource LabelMontserratRegular14}">
+        <Setter Property="TextColor" Value="{StaticResource Dark}" />        
     </Style>
 
     <Style TargetType="tabs:BottomTabItem">

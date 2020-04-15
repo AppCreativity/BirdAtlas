@@ -3,7 +3,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                     xmlns:controls="clr-namespace:BirdAtlas.Controls;assembly=BirdAtlas"
                     xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+                    xmlns:converters="clr-namespace:BirdAtlas.Converters"
                     x:Class="BirdAtlas.XamlResources.DataTemplates">
+    <converters:HabitatTypeToColorConverter x:Key="HabitatTypeToColorConverter" />
+
     <DataTemplate x:Key="StoryListItemTemplate">
         <ViewCell>
             <yummy:PancakeView BackgroundColor="White"
@@ -37,8 +40,7 @@
 
     <DataTemplate x:Key="HabitatListItemTemplate">
         <ViewCell>
-            <!-- TODO: Glenn - BackgrounColor should be bound to Habitat type -->
-            <yummy:PancakeView BackgroundColor="{StaticResource WarmBlue}"
+            <yummy:PancakeView BackgroundColor="{Binding Type, Converter={StaticResource Key=HabitatTypeToColorConverter}}"
                                CornerRadius="8,8,8,8"
                                HorizontalOptions="FillAndExpand"
                                HasShadow="true" BorderThickness="4"
