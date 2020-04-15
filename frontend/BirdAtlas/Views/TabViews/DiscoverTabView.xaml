@@ -5,10 +5,11 @@
              xmlns:models="clr-namespace:BirdAtlas.Models"
              x:Class="BirdAtlas.Views.TabViews.DiscoverTabView">
     <ContentView.Content>
-        <ScrollView Margin="0,24,0,12">
+        <ScrollView Margin="0,0,0,0">
             <StackLayout Orientation="Vertical"
+                         Margin="0,12,0,12"
                          Spacing="0">
-                <Grid RowSpacing="0" ColumnSpacing="0"
+                <Grid RowSpacing="0" ColumnSpacing="0"                      
                       Margin="24,0,24,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
@@ -17,7 +18,7 @@
                     
                     <Label Text="Stories"
                            Style="{StaticResource CategoryLabel}"
-                           HorizontalOptions="StartAndExpand"
+                           HorizontalOptions="StartAndExpand"                           
                            Grid.Column="0" />
                     
                     <Label Text="Show all"
@@ -27,13 +28,13 @@
                 </Grid>
                 
                 <renderedViews:HorizontalListView x:Name="StoryListView"
-                                                  Margin="0,12,0,0" CollectionPadding="24,24,24,24"
-                                                  ItemSpacing="40" ItemHeight="200" ItemWidth="200" SnapStyle="None"
+                                                  Margin="0,0,0,0" CollectionPadding="24,24,24,24"
+                                                  ItemSpacing="30" ItemHeight="200" ItemWidth="200" SnapStyle="None"
                                                   ItemsSource="{Binding Stories}"
                                                   ItemTemplate="{StaticResource StoryListItemTemplate}" />
                 
                 <Grid RowSpacing="0" ColumnSpacing="0"
-                      Margin="24,4,24,0">
+                      Margin="24,8,24,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
@@ -49,9 +50,15 @@
                            HorizontalOptions="EndAndExpand"
                            Grid.Column="1" />
                 </Grid>
+
+                <renderedViews:HorizontalListView x:Name="HabitatListView"
+                                                  Margin="0,0,0,0" CollectionPadding="24,24,24,24"
+                                                  ItemSpacing="30" ItemHeight="100" ItemWidth="200" SnapStyle="None"
+                                                  ItemsSource="{Binding Habitats}"
+                                                  ItemTemplate="{StaticResource HabitatListItemTemplate}" />
                 
                 <Grid RowSpacing="0" ColumnSpacing="0"
-                      Margin="24,24,24,0">
+                      Margin="24,8,24,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
@@ -68,14 +75,19 @@
                            Grid.Column="1" />
                 </Grid>
 
-                <StackLayout Orientation="Horizontal"
-                             Margin="24,10,0,0">
-                    <Label Text="Location:"
-                           Style="{StaticResource LocationLabel}" />
-                    <Label Text="{x:Static models:IconFont.MapMarker}" FontFamily="{StaticResource MaterialFontFamily}"
-                           TextColor="{StaticResource WarmBlue}"
-                           FontSize="18"/>
-                </StackLayout>
+                <Label Margin="24,10,0,0">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Location:  " Style="{StaticResource LocationLabel}" />
+                            <Span Text="{x:Static models:IconFont.MapMarker}"
+                                  FontFamily="{StaticResource MaterialFontFamily}"
+                                  TextColor="{StaticResource WarmBlue}"                                  
+                                  FontSize="18" />
+                            <Span Text="  Lesser Poland"
+                                  Style="{StaticResource CategoryLinkLabel}"/>
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
 
                 <FlexLayout x:Name="NearbyListView"
                             BindableLayout.ItemsSource="{Binding NearbyBirds}"
@@ -85,7 +97,7 @@
                             JustifyContent="Start"
                             AlignItems="Start"
                             AlignContent="Start"
-                            Margin="20,20,5,20" />
+                            Margin="20,24,5,20" />
             </StackLayout>
         </ScrollView>
     </ContentView.Content>

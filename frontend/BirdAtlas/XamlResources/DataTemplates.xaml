@@ -9,7 +9,7 @@
             <yummy:PancakeView BackgroundColor="White"
                                CornerRadius="8,8,8,8"
                                HorizontalOptions="FillAndExpand"
-                               HasShadow="True"
+                               HasShadow="true" BorderThickness="4"
                                Sides="4"
                                WidthRequest="160">
                 <Grid Padding="0"
@@ -23,13 +23,49 @@
                             Source="{Binding ImageUrl}"
                             HeightRequest="40" WidthRequest="160" />
                     <StackLayout VerticalOptions="CenterAndExpand"
-                                    Grid.Row="1"
-                                    Padding="12">
+                                 Grid.Row="1"
+                                 Padding="12">
                         <Label Text="{Binding Category}"
-                                Style="{StaticResource StoryCategoryLabel}" />
+                               Style="{StaticResource StoryCategoryLabel}" />
                         <Label Text="{Binding Title}"
-                                Style="{StaticResource StoryTitleLabel}" />
+                               Style="{StaticResource StoryTitleLabel}" />
                     </StackLayout>
+                </Grid>
+            </yummy:PancakeView>
+        </ViewCell>
+    </DataTemplate>
+
+    <DataTemplate x:Key="HabitatListItemTemplate">
+        <ViewCell>
+            <!-- TODO: Glenn - BackgrounColor should be bound to Habitat type -->
+            <yummy:PancakeView BackgroundColor="{StaticResource WarmBlue}"
+                               CornerRadius="8,8,8,8"
+                               HorizontalOptions="FillAndExpand"
+                               HasShadow="true" BorderThickness="4"
+                               Sides="4"
+                               WidthRequest="160">
+                <Grid Padding="12,0,0,0"
+                      RowSpacing="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="4*" />
+                        <RowDefinition Height="3*" />
+                    </Grid.RowDefinitions>
+                    <Label Text="{Binding Name}"
+                           VerticalOptions="Center"
+                           Style="{StaticResource LabelMontserratSemiBold16}" TextColor="White"
+                           Grid.Row="0" />
+                    <Label Grid.Row="1"
+                           VerticalOptions="Center"
+                           Opacity="0.6">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{Binding Amount}"
+                                      Style="{StaticResource LabelMontserratSemiBold14}" TextColor="White" />
+                                <Span Text=" birds"
+                                      Style="{StaticResource LabelMontserratSemiBold14}" TextColor="White" />
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
                 </Grid>
             </yummy:PancakeView>
         </ViewCell>
@@ -39,8 +75,8 @@
             <yummy:PancakeView BackgroundColor="White"
                                CornerRadius="8,8,8,8"
                                HorizontalOptions="FillAndExpand"
-                               HasShadow="True"
-                               Margin="0,0,40,20"
+                               HasShadow="true" BorderThickness="4"
+                               Margin="0,0,30,30"
                                HeightRequest="200" WidthRequest="160">
                 <Grid Padding="0"
                       RowSpacing="0">
@@ -49,12 +85,12 @@
                         <RowDefinition Height="2*" />
                     </Grid.RowDefinitions>
                     <Image Aspect="AspectFill"
-                            Grid.Row="0"
-                            Source="{Binding ImageUrl}"
-                            HeightRequest="40" WidthRequest="160" />
+                           Grid.Row="0"
+                           Source="{Binding ImageUrl}"
+                           HeightRequest="40" WidthRequest="160" />
                     <StackLayout VerticalOptions="CenterAndExpand"
-                                    Grid.Row="1"
-                                    Padding="12">
+                                 Grid.Row="1"
+                                 Padding="12">
                         <Label Text="{Binding Name}"
                                Style="{StaticResource TitleLabel}" />
                     </StackLayout>
