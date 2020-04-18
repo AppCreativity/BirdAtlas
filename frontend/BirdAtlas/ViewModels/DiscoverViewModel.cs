@@ -1,5 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using BirdAtlas.Models;
+using BirdAtlas.Views;
+using Prism.Commands;
 using Prism.Navigation;
 
 namespace BirdAtlas.ViewModels
@@ -26,6 +28,9 @@ namespace BirdAtlas.ViewModels
             get => _nearbyBirds;
             set => SetProperty(ref _nearbyBirds, value);
         }
+
+        private DelegateCommand<Story> _storyTappedCommand;
+        public DelegateCommand<Story> StoryTappedCommand => _storyTappedCommand ?? (_storyTappedCommand = new DelegateCommand<Story>(async (Story story) => await NavigationService.NavigateAsync($"{nameof(StoryDetailPage)}")));
 
         public DiscoverViewModel(INavigationService navigationService) : base(navigationService)
         {

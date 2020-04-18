@@ -3,7 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
              xmlns:models="clr-namespace:BirdAtlas.Models"
-             x:Class="BirdAtlas.Views.TabViews.DiscoverTabView">
+             xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             x:Class="BirdAtlas.Views.TabViews.DiscoverTabView"
+             x:Name="DiscoverView">
     <ContentView.Content>
         <ScrollView Margin="0,0,0,0">
             <StackLayout Orientation="Vertical"
@@ -30,8 +32,10 @@
                 <renderedViews:HorizontalListView x:Name="StoryListView"
                                                   Margin="0,0,0,0" CollectionPadding="24,24,24,24"
                                                   ItemSpacing="30" ItemHeight="200" ItemWidth="200" SnapStyle="None"
-                                                  ItemsSource="{Binding Stories}"
-                                                  ItemTemplate="{StaticResource StoryListItemTemplate}" />
+                                                  ItemsSource="{Binding Source={x:Reference DiscoverView}, Path=BindingContext.Stories}"
+                                                  ItemTemplate="{StaticResource StoryListItemTemplate}"
+                                                  TapCommand="{Binding StoryTappedCommand}">
+                </renderedViews:HorizontalListView>
                 
                 <Grid RowSpacing="0" ColumnSpacing="0"
                       Margin="24,8,24,0">
@@ -97,7 +101,7 @@
                             JustifyContent="Start"
                             AlignItems="Start"
                             AlignContent="Start"
-                            Margin="20,24,5,20" />
+                            Margin="24,24,5,20" />
             </StackLayout>
         </ScrollView>
     </ContentView.Content>

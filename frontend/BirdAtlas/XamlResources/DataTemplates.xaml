@@ -3,6 +3,7 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                     xmlns:controls="clr-namespace:BirdAtlas.Controls;assembly=BirdAtlas"
                     xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
+                    xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
                     xmlns:converters="clr-namespace:BirdAtlas.Converters"
                     x:Class="BirdAtlas.XamlResources.DataTemplates">
     <converters:HabitatTypeToColorConverter x:Key="HabitatTypeToColorConverter" />
