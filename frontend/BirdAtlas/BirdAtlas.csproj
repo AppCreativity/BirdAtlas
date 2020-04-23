@@ -24,6 +24,7 @@
     <Folder Include="XamlResources\" />
     <Folder Include="Views\TabViews\" />
     <Folder Include="Converters\" />
+    <Folder Include="Services\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Views\MyPage.xaml.cs" />
