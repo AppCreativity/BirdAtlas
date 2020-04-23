@@ -26,7 +26,11 @@
                     <Label Text="Show all"
                            Style="{StaticResource CategoryLinkLabel}"
                            HorizontalOptions="EndAndExpand"
-                           Grid.Column="1" />
+                           Grid.Column="1">
+                        <Label.GestureRecognizers>
+                            <TapGestureRecognizer Command="{Binding StoriesTappedCommand}" />
+                        </Label.GestureRecognizers>
+                    </Label>
                 </Grid>
                 
                 <renderedViews:HorizontalListView x:Name="StoryListView"

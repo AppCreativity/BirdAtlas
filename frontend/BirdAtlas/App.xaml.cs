@@ -30,6 +30,7 @@ namespace BirdAtlas
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<BasePage, BaseViewModel>();
             containerRegistry.RegisterForNavigation<StartPage, StartViewModel>();
+            containerRegistry.RegisterForNavigation<StoryOverviewPage, StoryOverviewViewModel>();
             containerRegistry.RegisterForNavigation<StoryDetailPage, StoryDetailViewModel>();
             containerRegistry.RegisterForNavigation<SettingsPage, SettingsViewModel>();
         }

@@ -5,10 +5,11 @@
                     xmlns:yummy="clr-namespace:Xamarin.Forms.PancakeView;assembly=Xamarin.Forms.PancakeView"
                     xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
                     xmlns:converters="clr-namespace:BirdAtlas.Converters"
+                    xmlns:models="clr-namespace:BirdAtlas.Models"
                     x:Class="BirdAtlas.XamlResources.DataTemplates">
     <converters:HabitatTypeToColorConverter x:Key="HabitatTypeToColorConverter" />
 
-    <DataTemplate x:Key="StoryListItemTemplate">
+    <DataTemplate x:Key="StoryListItemTemplate" x:DataType="models:Story">
         <ViewCell>
             <yummy:PancakeView BackgroundColor="White"
                                CornerRadius="8,8,8,8"
@@ -16,6 +17,9 @@
                                HasShadow="true" BorderThickness="4"
                                Sides="4"
                                WidthRequest="160">
+                <yummy:PancakeView.Shadow>
+                    <yummy:DropShadow BlurRadius="13" Opacity="0.12" />
+                </yummy:PancakeView.Shadow>
                 <Grid Padding="0"
                       RowSpacing="0">
                     <Grid.RowDefinitions>
@@ -24,14 +28,14 @@
                     </Grid.RowDefinitions>
                     <Image Aspect="AspectFill"
                             Grid.Row="0"
-                            Source="{Binding ImageUrl}"
+                            Source="{Binding ImageUrl, Mode=OneTime}"
                             HeightRequest="40" WidthRequest="160" />
                     <StackLayout VerticalOptions="CenterAndExpand"
                                  Grid.Row="1"
                                  Padding="12">
-                        <Label Text="{Binding Category}"
+                        <Label Text="{Binding Category, Mode=OneTime}"
                                Style="{StaticResource StoryCategoryLabel}" />
-                        <Label Text="{Binding Title}"
+                        <Label Text="{Binding Title, Mode=OneTime}"
                                Style="{StaticResource StoryTitleLabel}" />
                     </StackLayout>
                 </Grid>
@@ -39,21 +43,24 @@
         </ViewCell>
     </DataTemplate>
 
-    <DataTemplate x:Key="HabitatListItemTemplate">
+    <DataTemplate x:Key="HabitatListItemTemplate" x:DataType="models:Habitat">
         <ViewCell>
-            <yummy:PancakeView BackgroundColor="{Binding Type, Converter={StaticResource Key=HabitatTypeToColorConverter}}"
+            <yummy:PancakeView BackgroundColor="{Binding Type, Converter={StaticResource Key=HabitatTypeToColorConverter}, Mode=OneTime}"
                                CornerRadius="8,8,8,8"
                                HorizontalOptions="FillAndExpand"
                                HasShadow="true" BorderThickness="4"
                                Sides="4"
                                WidthRequest="160">
+                <yummy:PancakeView.Shadow>
+                    <yummy:DropShadow BlurRadius="13" Opacity="0.12" />
+                </yummy:PancakeView.Shadow>
                 <Grid Padding="12,0,0,0"
                       RowSpacing="0">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="4*" />
                         <RowDefinition Height="3*" />
                     </Grid.RowDefinitions>
-                    <Label Text="{Binding Name}"
+                    <Label Text="{Binding Name, Mode=OneTime}"
                            VerticalOptions="Center"
                            Style="{StaticResource LabelMontserratSemiBold16}" TextColor="White"
                            Grid.Row="0" />
@@ -62,7 +69,7 @@
                            Opacity="0.6">
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="{Binding Amount}"
+                                <Span Text="{Binding Amount, Mode=OneTime}"
                                       Style="{StaticResource LabelMontserratSemiBold14}" TextColor="White" />
                                 <Span Text=" birds"
                                       Style="{StaticResource LabelMontserratSemiBold14}" TextColor="White" />
@@ -74,13 +81,16 @@
         </ViewCell>
     </DataTemplate>
 
-    <DataTemplate x:Key="NearbyListItemTemplate">
+    <DataTemplate x:Key="NearbyListItemTemplate" x:DataType="models:Nearby">
             <yummy:PancakeView BackgroundColor="White"
                                CornerRadius="8,8,8,8"
                                HorizontalOptions="FillAndExpand"
                                HasShadow="true" BorderThickness="4"
                                Margin="0,0,30,30"
                                HeightRequest="200" WidthRequest="160">
+                <yummy:PancakeView.Shadow>
+                    <yummy:DropShadow BlurRadius="13" Opacity="0.12" />
+                </yummy:PancakeView.Shadow>
                 <Grid Padding="0"
                       RowSpacing="0">
                     <Grid.RowDefinitions>
@@ -89,12 +99,12 @@
                     </Grid.RowDefinitions>
                     <Image Aspect="AspectFill"
                            Grid.Row="0"
-                           Source="{Binding ImageUrl}"
+                           Source="{Binding ImageUrl, Mode=OneTime}"
                            HeightRequest="40" WidthRequest="160" />
                     <StackLayout VerticalOptions="CenterAndExpand"
                                  Grid.Row="1"
                                  Padding="12">
-                        <Label Text="{Binding Name}"
+                        <Label Text="{Binding Name, Mode=OneTime}"
                                Style="{StaticResource TitleLabel}" />
                     </StackLayout>
                 </Grid>
