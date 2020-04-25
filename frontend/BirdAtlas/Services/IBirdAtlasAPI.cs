@@ -7,8 +7,11 @@ namespace BirdAtlas.Services
 {
     public interface IBirdAtlasAPI
     {
-        Task<List<Story>> GetStoriesAsync();
-        Task<List<Habitat>> GetHabitatsAsync();
-        Task<List<Nearby>> GetNearbiesAsync();
+        Task<IEnumerable<Story>> GetStoriesAsync();
+        Task<IEnumerable<Habitat>> GetHabitatsAsync();
+        Task<IEnumerable<Nearby>> GetNearbiesAsync();
+
+        Task<IEnumerable<Story>> GetFeaturedStories(int amount);
+        Task<IEnumerable<Story>> GetNewestStories(int amount);        
     }
 }

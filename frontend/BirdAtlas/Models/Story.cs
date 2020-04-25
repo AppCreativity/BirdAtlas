@@ -8,6 +8,6 @@ namespace BirdAtlas.Models
         public string Category { get; set; }
         public string Title { get; set; }
         public bool IsFeatured { get; set; }
-        public DateTime Published { get; set; }
+        public DateTime PublishedOn { get; set; }
     }
 }

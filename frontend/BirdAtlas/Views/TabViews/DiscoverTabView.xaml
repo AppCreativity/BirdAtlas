@@ -8,8 +8,7 @@
              x:Name="DiscoverView">
     <ContentView.Content>
         <ScrollView Margin="0,0,0,0">
-            <StackLayout Orientation="Vertical"
-                         Margin="0,12,0,12"
+            <StackLayout Margin="0,12,0,12"
                          Spacing="0">
                 <Grid RowSpacing="0" ColumnSpacing="0"                      
                       Margin="24,0,24,0">
@@ -17,16 +16,16 @@
                         <ColumnDefinition Width="*" />
                         <ColumnDefinition Width="*" />
                     </Grid.ColumnDefinitions>
-                    
+
                     <Label Text="Stories"
                            Style="{StaticResource CategoryLabel}"
                            HorizontalOptions="StartAndExpand"                           
                            Grid.Column="0" />
-                    
+
                     <Label Text="Show all"
-                           Style="{StaticResource CategoryLinkLabel}"
-                           HorizontalOptions="EndAndExpand"
-                           Grid.Column="1">
+                            Style="{StaticResource CategoryLinkLabel}"
+                            HorizontalOptions="EndAndExpand"
+                            Grid.Column="1">
                         <Label.GestureRecognizers>
                             <TapGestureRecognizer Command="{Binding StoriesTappedCommand}" />
                         </Label.GestureRecognizers>

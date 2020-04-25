@@ -4,7 +4,7 @@
     {
         public StoryOverviewPage()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
     }
 }

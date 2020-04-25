@@ -14,6 +14,7 @@
     <PackageReference Include="Prism.DryIoc.Forms" Version="7.2.0.1422" />
     <PackageReference Include="Xamarin.Forms.PancakeView" Version="1.4.2-beta" />
     <PackageReference Include="Sharpnado.Presentation.Forms" Version="1.5.1" />
+    <PackageReference Include="Xamanimation" Version="1.3.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />
@@ -25,6 +26,8 @@
     <Folder Include="Views\TabViews\" />
     <Folder Include="Converters\" />
     <Folder Include="Services\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Behaviors\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Remove="Views\MyPage.xaml.cs" />

@@ -6,5 +6,27 @@
                 BasePageTitle="Stories"
                 PageMode="Navigate">
     <views:BasePage.BasePageContent>
+        <ScrollView Margin="0,0,0,0">
+            <StackLayout Margin="24,12,24,12"
+                         Spacing="0">
+                <Label Text="Featured"
+                       Style="{StaticResource CategoryLabel}"
+                       HorizontalOptions="StartAndExpand" />
+
+                <StackLayout BindableLayout.ItemsSource="{Binding FeaturedStories}"
+                             BindableLayout.ItemTemplate="{StaticResource FeaturedStoryListItemTemplate}"
+                             Spacing="24"
+                             Margin="0,24,0,24" />
+
+                <Label Text="Newest"
+                       Style="{StaticResource CategoryLabel}"
+                       HorizontalOptions="StartAndExpand" />
+
+                <StackLayout BindableLayout.ItemsSource="{Binding NewStories}"
+                             BindableLayout.ItemTemplate="{StaticResource NewStoryListItemTemplate}"
+                             Spacing="24"
+                             Margin="0,24,0,24"/>
+            </StackLayout>
+        </ScrollView>
     </views:BasePage.BasePageContent>
 </views:BasePage>
