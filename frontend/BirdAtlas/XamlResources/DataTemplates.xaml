@@ -6,6 +6,7 @@
                     xmlns:effects="clr-namespace:Sharpnado.Presentation.Forms.Effects;assembly=Sharpnado.Presentation.Forms"
                     xmlns:behaviors="clr-namespace:BirdAtlas.Behaviors"
                     xmlns:converters="clr-namespace:BirdAtlas.Converters"
+                    xmlns:viewmodels="clr-namespace:BirdAtlas.ViewModels"
                     xmlns:models="clr-namespace:BirdAtlas.Models"
                     x:Class="BirdAtlas.XamlResources.DataTemplates">
     <converters:HabitatTypeToColorConverter x:Key="HabitatTypeToColorConverter" />
@@ -118,6 +119,9 @@
             <StackLayout.Behaviors>
                 <behaviors:EntranceTransition Duration="650" />
             </StackLayout.Behaviors>
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:StoryOverviewViewModel}}, Path=StoryItemTappedCommand}" CommandParameter="{Binding}" />
+            </StackLayout.GestureRecognizers>
         <yummy:PancakeView BackgroundColor="White"
                            CornerRadius="8,8,8,8"
                            HorizontalOptions="FillAndExpand"
@@ -160,6 +164,9 @@
             <StackLayout.Behaviors>
                 <behaviors:EntranceTransition Duration="650" />
             </StackLayout.Behaviors>
+            <StackLayout.GestureRecognizers>
+                <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type viewmodels:StoryOverviewViewModel}}, Path=StoryItemTappedCommand}" CommandParameter="{Binding}" />
+            </StackLayout.GestureRecognizers>
         <yummy:PancakeView BackgroundColor="White"
                            CornerRadius="8,8,8,8"
                            HorizontalOptions="FillAndExpand"

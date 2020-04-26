@@ -3,6 +3,8 @@ using System.Collections.ObjectModel;
 using System.Threading.Tasks;
 using BirdAtlas.Models;
 using BirdAtlas.Services;
+using BirdAtlas.Views;
+using Prism.Commands;
 using Prism.Navigation;
 
 namespace BirdAtlas.ViewModels
@@ -22,6 +24,9 @@ namespace BirdAtlas.ViewModels
             get => _newStories;
             set => SetProperty(ref _newStories, value);
         }
+
+        private DelegateCommand<Story> _storyItemTappedCommand;
+        public DelegateCommand<Story> StoryItemTappedCommand => _storyItemTappedCommand ?? (_storyItemTappedCommand = new DelegateCommand<Story>(async story => await NavigationService.NavigateAsync($"{nameof(StoryDetailPage)}")));
 
         public StoryOverviewViewModel(IBirdAtlasAPI birdAtlasAPI, INavigationService navigationService) : base(birdAtlasAPI, navigationService)
         {
