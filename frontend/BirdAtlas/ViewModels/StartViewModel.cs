@@ -1,16 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using BirdAtlas.Models;
 using BirdAtlas.Services;
-using Prism.Mvvm;
 using Prism.Navigation;
 
 namespace BirdAtlas.ViewModels
 {
     public class StartViewModel : BaseViewModel
     {
+        bool _loaded = false;
+
         private int _selectedViewModelIndex = 0;
         public int SelectedViewModelIndex
         {
@@ -31,12 +29,16 @@ namespace BirdAtlas.ViewModels
 
         public async override void OnNavigatedTo(INavigationParameters parameters)
         {
-            await Task.WhenAll(new List<Task>()
+            if (!_loaded)
             {
-                { Task.Run(() => GetStoriesAsync()) }
-                //, { Task.Run(() => BirdAtlasAPI.GetHabitatsAsync()) }
-                //, { Task.Run(() => BirdAtlasAPI.GetNearbiesAsync()) }
-            });
+                await Task.WhenAll(new List<Task>()
+                {
+                    { Task.Run(() => GetStoriesAsync()) }
+                    //, { Task.Run(() => BirdAtlasAPI.GetHabitatsAsync()) }
+                    //, { Task.Run(() => BirdAtlasAPI.GetNearbiesAsync()) }
+                });
+                _loaded = true;
+            }
         }
 
         private async Task GetStoriesAsync()

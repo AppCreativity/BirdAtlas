@@ -37,7 +37,7 @@ namespace BirdAtlas.ViewModels
         public DelegateCommand StoriesTappedCommand => _storiesTappedCommand ?? (_storiesTappedCommand = new DelegateCommand(async () => await NavigationService.NavigateAsync(nameof(StoryOverviewPage))));
 
         private DelegateCommand<Story> _storyTappedCommand;
-        public DelegateCommand<Story> StoryTappedCommand => _storyTappedCommand ?? (_storyTappedCommand = new DelegateCommand<Story>(async story => await NavigationService.NavigateAsync($"{nameof(StoryDetailPage)}")));
+        public DelegateCommand<Story> StoryTappedCommand => _storyTappedCommand ?? (_storyTappedCommand = new DelegateCommand<Story>(async story => await NavigationService.NavigateAsync($"{nameof(StoryDetailPage)}?id={story.ID.ToString()}")));
 
         public DiscoverViewModel(IBirdAtlasAPI birdAtlasAPI, INavigationService navigationService) : base(birdAtlasAPI, navigationService)
         {

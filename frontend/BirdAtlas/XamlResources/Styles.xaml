@@ -13,6 +13,11 @@
         <On Platform="iOS" Value="Material Design Icons" />
         <On Platform="Android" Value="materialdesignicons-webfont.ttf#Material Design Icons" />
     </OnPlatform>
+
+    <OnPlatform x:Key="MontserratLightFontFamily" x:TypeArguments="x:String">
+        <On Platform="iOS" Value="Montserrat-Light" />
+        <On Platform="Android" Value="Montserrat-Light.ttf#Montserrat Light" />
+    </OnPlatform>
     
     <OnPlatform x:Key="MontserratMediumFontFamily" x:TypeArguments="x:String">
         <On Platform="iOS" Value="Montserrat-Medium" />
@@ -52,6 +57,11 @@
         <Setter Property="FontSize" Value="16" />
     </Style>
 
+    <Style x:Key="LabelMontserratSemiBold20" TargetType="Label">
+        <Setter Property="FontFamily" Value="{StaticResource MontserratSemiBoldFontFamily}" />
+        <Setter Property="FontSize" Value="20" />
+    </Style>
+
     <Style x:Key="LabelMontserratMedium11" TargetType="Label">
         <Setter Property="FontFamily" Value="{StaticResource MontserratMediumFontFamily}" />
         <Setter Property="FontSize" Value="11" />
@@ -62,9 +72,19 @@
         <Setter Property="FontSize" Value="13" />
     </Style>
 
+    <Style x:Key="LabelMontserratMedium16" TargetType="Label">
+        <Setter Property="FontFamily" Value="{StaticResource MontserratMediumFontFamily}" />
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+
     <Style x:Key="LabelMontserratRegular14" TargetType="Label">
         <Setter Property="FontFamily" Value="{StaticResource MontserratRegularFontFamily}" />
         <Setter Property="FontSize" Value="14" />
+    </Style>
+
+    <Style x:Key="LabelMontserratLight13" TargetType="Label">
+        <Setter Property="FontFamily" Value="{StaticResource MontserratLightFontFamily}" />
+        <Setter Property="FontSize" Value="13" />
     </Style>
 
     <!-- BasedOn Labels -->
@@ -85,11 +105,33 @@
         <Setter Property="TextColor" Value="{StaticResource Dark}" />        
     </Style>
 
-    <Style x:Key="StoryTitleLabel" BasedOn="{StaticResource TitleLabel}" TargetType="Label">
+    <Style x:Key="StoryTitleLabel" TargetType="Label" BasedOn="{StaticResource TitleLabel}">
+    </Style>
+
+    <Style x:Key="DetailTitleLabel" TargetType="Label" BasedOn="{StaticResource LabelMontserratSemiBold20}">
+        <Setter Property="TextColor" Value="{StaticResource Dark}" />        
+    </Style>
+    
+    <Style x:Key="StoryDetailTitleLabel" TargetType="Label" BasedOn="{StaticResource DetailTitleLabel}">
+    </Style>
+
+    <Style x:Key="DetailSubtitleLabel" TargetType="Label" BasedOn="{StaticResource LabelMontserratMedium16}">
+        <Setter Property="TextColor" Value="{StaticResource Dark}" />
+        <Setter Property="Opacity" Value="0.5" />
+    </Style>
+
+    <Style x:Key="StoryDetailSubtitleLabel" TargetType="Label" BasedOn="{StaticResource DetailSubtitleLabel}">
     </Style>
 
     <Style x:Key="LocationLabel" TargetType="Label" BasedOn="{StaticResource LabelMontserratRegular14}">
         <Setter Property="TextColor" Value="{StaticResource Dark}" />        
+    </Style>
+
+    <Style x:Key="ContentLabel" TargetType="Label" BasedOn="{StaticResource LabelMontserratLight13}">
+        <Setter Property="TextColor" Value="{StaticResource Dark}" />        
+    </Style>
+
+    <Style x:Key="StoryContentLabel" TargetType="Label" BasedOn="{StaticResource ContentLabel}">
     </Style>
 
     <Style TargetType="tabs:BottomTabItem">

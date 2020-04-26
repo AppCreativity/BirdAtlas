@@ -3,8 +3,25 @@
                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                 xmlns:views="clr-namespace:BirdAtlas.Views"
                 x:Class="BirdAtlas.Views.StoryDetailPage"
-                BasePageTitle="Story detail"
+                BasePageTitle="{Binding Story.Category, Mode=OneWay}"
                 PageMode="Navigate">
     <views:BasePage.BasePageContent>
+        <ScrollView>
+            <StackLayout Spacing="0">
+                <StackLayout Margin="24,0,24,20" Spacing="12">
+                    <Label Text="{Binding Story.Title, Mode=OneWay}"
+                           Style="{StaticResource StoryDetailTitleLabel}"/>
+                    <Label Text="{Binding Story.Author, Mode=OneWay}"
+                           Style="{StaticResource StoryDetailSubtitleLabel}"/>
+                </StackLayout>
+
+                <Image Source="{Binding Story.ImageUrl, Mode=OneWay}" />
+
+                <Label Text="{Binding Story.Content, Mode=OneWay}"
+                       Style="{StaticResource StoryContentLabel}"
+                       LineHeight="1.5"
+                       Margin="24"/>
+            </StackLayout>
+        </ScrollView>
     </views:BasePage.BasePageContent>
 </views:BasePage>

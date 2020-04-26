@@ -11,6 +11,8 @@ namespace BirdAtlas.ViewModels
 {
     public class StoryOverviewViewModel : BaseViewModel
     {
+        private bool _loaded = false;
+
         private ObservableCollection<Story> _featuredStories = new ObservableCollection<Story>();
         public ObservableCollection<Story> FeaturedStories
         {
@@ -26,7 +28,7 @@ namespace BirdAtlas.ViewModels
         }
 
         private DelegateCommand<Story> _storyItemTappedCommand;
-        public DelegateCommand<Story> StoryItemTappedCommand => _storyItemTappedCommand ?? (_storyItemTappedCommand = new DelegateCommand<Story>(async story => await NavigationService.NavigateAsync($"{nameof(StoryDetailPage)}")));
+        public DelegateCommand<Story> StoryItemTappedCommand => _storyItemTappedCommand ?? (_storyItemTappedCommand = new DelegateCommand<Story>(async story => await NavigationService.NavigateAsync($"{nameof(StoryDetailPage)}?id={story.ID}")));
 
         public StoryOverviewViewModel(IBirdAtlasAPI birdAtlasAPI, INavigationService navigationService) : base(birdAtlasAPI, navigationService)
         {
@@ -34,11 +36,15 @@ namespace BirdAtlas.ViewModels
 
         public async override void OnNavigatedTo(INavigationParameters parameters)
         {
-            await Task.WhenAll(new List<Task>()
+            if (!_loaded)
             {
-                { Task.Run(() => GetFeaturedStoriesAsync()) }
-                , { Task.Run(() => GetNewestStoriesAsync()) }
-            });
+                await Task.WhenAll(new List<Task>()
+                {
+                    { Task.Run(() => GetFeaturedStoriesAsync()) }
+                    , { Task.Run(() => GetNewestStoriesAsync()) }
+                });
+                _loaded = true;
+            }
         }
 
         private async Task GetFeaturedStoriesAsync()

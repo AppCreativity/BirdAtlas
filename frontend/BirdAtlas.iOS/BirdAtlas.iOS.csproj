@@ -186,6 +186,7 @@
     <BundleResource Include="Resources\ic_bookmarks%402x.png" />
     <BundleResource Include="Resources\ic_bookmarks%403x.png" />
     <BundleResource Include="Resources\Montserrat-Regular.ttf" />
+    <BundleResource Include="Resources\Montserrat-Light.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Framework\" />

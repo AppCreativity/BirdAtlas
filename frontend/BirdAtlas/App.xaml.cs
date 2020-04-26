@@ -28,7 +28,7 @@ namespace BirdAtlas
 
         protected override void RegisterTypes(IContainerRegistry containerRegistry)
         {
-            containerRegistry.Register<IBirdAtlasAPI, BirdAtlasMockAPI>();
+            containerRegistry.RegisterSingleton<IBirdAtlasAPI, BirdAtlasMockAPI>();
 
             containerRegistry.RegisterForNavigation<NavigationPage>();
             containerRegistry.RegisterForNavigation<BasePage, BaseViewModel>();
