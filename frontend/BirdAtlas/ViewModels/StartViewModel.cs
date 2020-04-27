@@ -1,5 +1,7 @@
 ﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Threading.Tasks;
+using BirdAtlas.Models;
 using BirdAtlas.Services;
 using Prism.Navigation;
 
@@ -44,8 +46,9 @@ namespace BirdAtlas.ViewModels
         private async Task GetStoriesAsync()
         {
             var stories = await BirdAtlasAPI.GetStoriesAsync();
-            foreach (var story in stories)
-                App.Current.Dispatcher.BeginInvokeOnMainThread(() => DiscoverViewModel.Stories.Add(story));
+            App.Current.Dispatcher.BeginInvokeOnMainThread(() => DiscoverViewModel.Stories = new ObservableCollection<Story>(stories));
+            //foreach (var story in stories)
+            //    App.Current.Dispatcher.BeginInvokeOnMainThread(() => DiscoverViewModel.Stories.Add(story));
         }
     }
 }
