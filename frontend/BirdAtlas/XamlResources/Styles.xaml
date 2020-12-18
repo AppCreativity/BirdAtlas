@@ -2,7 +2,7 @@
 <ResourceDictionary xmlns="http://xamarin.com/schemas/2014/forms"
                     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                     x:Class="BirdAtlas.XamlResources.Styles"
-                    xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms">
+                    xmlns:sho="http://sharpnado.com">
 
     <Color x:Key="Dark">#262d3a</Color>
     <Color x:Key="LightBlue">#6688ff</Color>
@@ -88,7 +88,6 @@
     </Style>
 
     <!-- BasedOn Labels -->
-    
     <Style x:Key="CategoryLabel" TargetType="Label" BasedOn="{StaticResource LabelMontserratSemiBold16}">
     </Style>
     
@@ -134,8 +133,14 @@
     <Style x:Key="StoryContentLabel" TargetType="Label" BasedOn="{StaticResource ContentLabel}">
     </Style>
 
-    <Style TargetType="tabs:BottomTabItem">
+    <Style TargetType="sho:BottomTabItem">
         <Setter Property="IconSize" Value="21" />
         <Setter Property="IsTextVisible" Value="False" />
     </Style>
+
+    <sho:SingleShade x:Key="LightTopShadow"
+                        BlurRadius="70"
+                        Opacity="0.1"
+                        Offset="0,-5"
+                        Color="Black" />
 </ResourceDictionary>

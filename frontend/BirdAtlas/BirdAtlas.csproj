@@ -10,11 +10,13 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Xamarin.Forms" Version="4.5.0.657" />
-    <PackageReference Include="Prism.DryIoc.Forms" Version="7.2.0.1422" />
-    <PackageReference Include="Xamarin.Forms.PancakeView" Version="1.4.2-beta" />
-    <PackageReference Include="Sharpnado.Presentation.Forms" Version="1.5.1" />
+    <PackageReference Include="Xamarin.Forms" Version="4.8.0.1821" />
+    <PackageReference Include="Prism.DryIoc.Forms" Version="8.0.0.1909" />
+    <PackageReference Include="Xamarin.Forms.PancakeView" Version="2.3.0.759" />
     <PackageReference Include="Xamanimation" Version="1.3.0" />
+    <PackageReference Include="Sharpnado.Tabs" Version="2.0.1" />
+    <PackageReference Include="Sharpnado.Shadows" Version="1.2.0" />
+    <PackageReference Include="Sharpnado.Forms.HorizontalListView" Version="1.8.0" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\" />

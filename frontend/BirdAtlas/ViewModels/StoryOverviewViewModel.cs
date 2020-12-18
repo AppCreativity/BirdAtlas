@@ -34,17 +34,13 @@ namespace BirdAtlas.ViewModels
         {
         }
 
-        public async override void OnNavigatedTo(INavigationParameters parameters)
+        public override async Task InitializeAsync(INavigationParameters parameters)
         {
-            if (!_loaded)
-            {
-                await Task.WhenAll(new List<Task>()
+            await Task.WhenAll(new List<Task>()
                 {
                     { Task.Run(() => GetFeaturedStoriesAsync()) }
                     , { Task.Run(() => GetNewestStoriesAsync()) }
                 });
-                _loaded = true;
-            }
         }
 
         private async Task GetFeaturedStoriesAsync()

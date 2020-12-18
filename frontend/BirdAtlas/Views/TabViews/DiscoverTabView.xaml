@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <ContentView xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:renderedViews="clr-namespace:Sharpnado.Presentation.Forms.RenderedViews;assembly=Sharpnado.Presentation.Forms"
              xmlns:models="clr-namespace:BirdAtlas.Models"
              xmlns:behaviors="clr-namespace:Prism.Behaviors;assembly=Prism.Forms"
+             xmlns:sho="http://sharpnado.com"
              x:Class="BirdAtlas.Views.TabViews.DiscoverTabView"
              x:Name="DiscoverView">
     <ContentView.Content>
@@ -32,14 +32,13 @@
                     </Label>
                 </Grid>
                 
-                <renderedViews:HorizontalListView x:Name="StoryListView"
+                <sho:HorizontalListView x:Name="StoryListView"
                                                   Margin="0,0,0,0" CollectionPadding="24,24,24,24"
                                                   ItemSpacing="30" ItemHeight="200" ItemWidth="200" SnapStyle="None"
                                                   ItemsSource="{Binding Source={x:Reference DiscoverView}, Path=BindingContext.Stories}"
                                                   ItemTemplate="{StaticResource StoryListItemTemplate}"
-                                                  TapCommand="{Binding StoryTappedCommand}">
-                </renderedViews:HorizontalListView>
-                
+                                                  TapCommand="{Binding StoryTappedCommand}" />
+
                 <Grid RowSpacing="0" ColumnSpacing="0"
                       Margin="24,8,24,0">
                     <Grid.ColumnDefinitions>
@@ -58,7 +57,7 @@
                            Grid.Column="1" />
                 </Grid>
 
-                <renderedViews:HorizontalListView x:Name="HabitatListView"
+                <sho:HorizontalListView x:Name="HabitatListView"
                                                   Margin="0,0,0,0" CollectionPadding="24,24,24,24"
                                                   ItemSpacing="30" ItemHeight="100" ItemWidth="200" SnapStyle="None"
                                                   ItemsSource="{Binding Habitats}"

@@ -1,5 +1,5 @@
 ﻿using Foundation;
-using Sharpnado.Presentation.Forms.iOS;
+using Sharpnado.HorizontalListView;
 using UIKit;
 using Xamarin.Forms;
 
@@ -22,7 +22,9 @@ namespace BirdAtlas.iOS
         {
             Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init();
-            SharpnadoInitializer.Initialize();
+
+            Sharpnado.HorizontalListView.iOS.SharpnadoInitializer.Initialize();
+            Sharpnado.Tabs.iOS.Preserver.Preserve();
 
             LoadApplication(new App());
 

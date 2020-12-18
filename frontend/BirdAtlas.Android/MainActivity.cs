@@ -1,7 +1,7 @@
 ﻿using Android.App;
 using Android.Content.PM;
 using Android.OS;
-using Sharpnado.Presentation.Forms.Droid;
+using Sharpnado.HorizontalListView.Droid;
 using Xamarin.Forms;
 
 namespace BirdAtlas.Droid
@@ -17,7 +17,8 @@ namespace BirdAtlas.Droid
             base.OnCreate(savedInstanceState);
             Forms.SetFlags("CollectionView_Experimental");
             global::Xamarin.Forms.Forms.Init(this, savedInstanceState);
-            SharpnadoInitializer.Initialize();
+
+            SharpnadoInitializer.Initialize(enableInternalLogger: true, enableInternalDebugLogger: true);
 
             LoadApplication(new App());
         }

@@ -1,8 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <views:BasePage xmlns="http://xamarin.com/schemas/2014/forms"
                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                xmlns:customViews="clr-namespace:Sharpnado.Presentation.Forms.CustomViews;assembly=Sharpnado.Presentation.Forms"
-                xmlns:tabs="clr-namespace:Sharpnado.Presentation.Forms.CustomViews.Tabs;assembly=Sharpnado.Presentation.Forms"
+                xmlns:sho="http://sharpnado.com"
                 xmlns:views="clr-namespace:BirdAtlas.Views"
                 xmlns:tabViews="clr-namespace:BirdAtlas.Views.TabViews"
                 x:Class="BirdAtlas.Views.StartPage"
@@ -14,27 +13,27 @@
                 <RowDefinition x:Name="BottomBarRowDefinition" Height="50" />
             </Grid.RowDefinitions>
 
-            <tabs:ViewSwitcher x:Name="Switcher"
+            <sho:ViewSwitcher x:Name="Switcher"
                                Grid.Row="0"
                                Animate="False"
                                SelectedIndex="{Binding SelectedViewModelIndex, Mode=TwoWay}">
-                <customViews:LazyView x:TypeArguments="tabViews:DiscoverTabView"    BindingContext="{Binding DiscoverViewModel}" />
-                <customViews:LazyView x:TypeArguments="tabViews:SearchTabView"      BindingContext="{Binding SearchViewModel}" />
-                <customViews:LazyView x:TypeArguments="tabViews:BookmarkTabView"    BindingContext="{Binding BookmarkViewModel}" />
-            </tabs:ViewSwitcher>
+                <sho:LazyView x:TypeArguments="tabViews:DiscoverTabView"    BindingContext="{Binding DiscoverViewModel}" />
+                <sho:LazyView x:TypeArguments="tabViews:SearchTabView"      BindingContext="{Binding SearchViewModel}" />
+                <sho:LazyView x:TypeArguments="tabViews:BookmarkTabView"    BindingContext="{Binding BookmarkViewModel}" />
+            </sho:ViewSwitcher>
 
-            <tabs:TabHostView x:Name="TabHost"
+            <sho:TabHostView x:Name="TabHost"
                               Grid.Row="1"
                               BackgroundColor="White"
+                              Shades="{StaticResource LightTopShadow}"
                               SelectedIndex="{Binding Source={x:Reference Switcher}, Path=SelectedIndex, Mode=TwoWay}"
-                              SelectedTabIndexChanged="OnTabHostSelectedTabIndexChanged"
-                              ShadowType="Top">
-                 <tabs:TabHostView.Tabs>
-                     <tabs:BottomTabItem IconImageSource="ic_discover.png"  Label="Discover" />
-                     <tabs:BottomTabItem IconImageSource="ic_search.png"    Label="Search" />
-                     <tabs:BottomTabItem IconImageSource="ic_bookmarks.png" Label="Saved" />
-                 </tabs:TabHostView.Tabs>
-            </tabs:TabHostView>
+                              SelectedTabIndexChanged="OnTabHostSelectedTabIndexChanged">
+                <sho:TabHostView.Tabs>
+                    <sho:BottomTabItem IconImageSource="ic_discover.png"  Label="Discover" />
+                    <sho:BottomTabItem IconImageSource="ic_search.png"    Label="Search" />
+                    <sho:BottomTabItem IconImageSource="ic_bookmarks.png" Label="Saved" />
+                </sho:TabHostView.Tabs>
+            </sho:TabHostView>
         </Grid>
     </views:BasePage.BasePageContent>
 </views:BasePage>

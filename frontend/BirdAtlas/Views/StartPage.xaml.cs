@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Sharpnado.Presentation.Forms.CustomViews.Tabs;
+using Sharpnado.Tabs;
 using Xamarin.Forms;
 
 namespace BirdAtlas.Views
