@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fultter_birdatlas/styles.dart';
 
 class TabAppBar extends StatefulWidget implements PreferredSizeWidget {
   final String title;
@@ -24,6 +25,7 @@ class _TabAppBarState extends State<TabAppBar> {
     return AppBar(
       elevation: 0, //Remove the shadow line
       backgroundColor: Colors.transparent,
+      brightness: Brightness.light,
       actionsIconTheme: IconThemeData(size: 20.0, color: Colors.black),
       actions: [
         Padding(
@@ -34,10 +36,7 @@ class _TabAppBarState extends State<TabAppBar> {
                   Icons.tune,
                 )))
       ],
-      title: Text(
-        title,
-        style: TextStyle(color: Colors.black),
-      ),
+      title: Text(title, style: TitleTextStyle),
     );
   }
 }
