@@ -11,8 +11,20 @@ const AppColors = {
 };
 
 //TODO: Glenn - read https://flutter.dev/docs/cookbook/design/themes
-const TitleTextStyle = TextStyle(
+TextStyle titleTextStyle = TextStyle(
     color: Colors.black,
     fontFamily: 'Montserrat',
     fontWeight: FontWeight.w700,
     fontSize: 18);
+
+TextStyle storyTitleTextStyle = TextStyle(
+    color: Colors.black,
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w500,
+    fontSize: 13);
+
+TextStyle storyCategoryTextStyle = TextStyle(
+    color: Colors.black.withOpacity(0.5),
+    fontFamily: 'Montserrat',
+    fontWeight: FontWeight.w500,
+    fontSize: 11);

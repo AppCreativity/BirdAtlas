@@ -36,7 +36,7 @@ class _TabAppBarState extends State<TabAppBar> {
                   Icons.tune,
                 )))
       ],
-      title: Text(title, style: TitleTextStyle),
+      title: Text(title, style: titleTextStyle),
     );
   }
 }
