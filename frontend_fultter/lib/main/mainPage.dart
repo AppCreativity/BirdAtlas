@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:fultter_birdatlas/main/tabs/bookmarkTab.dart';
 import 'package:fultter_birdatlas/main/tabs/discoverTab.dart';
 import 'package:fultter_birdatlas/main/tabs/searchTab.dart';
+import 'package:fultter_birdatlas/models.dart';
 import 'package:fultter_birdatlas/styles.dart';
 
 class MainPage extends StatefulWidget {

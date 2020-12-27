@@ -19,7 +19,17 @@ class DiscoverBody extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0),
       child: ListView(
-        children: <Widget>[CategoryHeader('Stories'), StoriesList()],
+        children: <Widget>[
+          CategoryHeader('Stories'),
+          StoriesList(),
+          Padding(
+              padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
+              child: CategoryHeader('Habitats')),
+          HabitatList(),
+          Padding(
+              padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
+              child: CategoryHeader('Nearby')),
+        ],
       ),
     );
   }
@@ -35,9 +45,15 @@ class CategoryHeader extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: <Widget>[
-        Text(category),
+        Text(
+          category,
+          style: categoryTextStyle,
+        ),
         InkWell(
-          child: Text('Show all'),
+          child: Text(
+            'Show all',
+            style: categoryLinkTextStyle,
+          ),
           onTap: () => print('Tap - Show all'),
         )
       ],
@@ -140,5 +156,72 @@ class StoryListItem extends StatelessWidget {
                         ])))
           ],
         ));
+  }
+}
+
+class HabitatList extends StatelessWidget {
+  final habitats = {
+    Habitat()
+      ..name = 'Forests'
+      ..type = HabitatType.Forest
+      ..amount = 290,
+    Habitat()
+      ..name = 'Tundra'
+      ..type = HabitatType.Tundra
+      ..amount = 311,
+    Habitat()
+      ..name = 'Deserts'
+      ..type = HabitatType.Desert
+      ..amount = 307
+  }.toList();
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+        height: 100,
+        child: ListView.builder(
+            padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
+            scrollDirection: Axis.horizontal,
+            itemCount: habitats.length,
+            itemBuilder: (context, index) {
+              return HabitatListItem(habitats[index]);
+            }));
+  }
+}
+
+class HabitatListItem extends StatelessWidget {
+  final Habitat habitat;
+
+  HabitatListItem(this.habitat);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 160,
+      margin: EdgeInsets.only(right: 20.0),
+      decoration: BoxDecoration(
+        color: habitat.color,
+        borderRadius: BorderRadius.circular(8.0),
+      ),
+      child: Padding(
+          padding: EdgeInsets.fromLTRB(10.0, 0.0, 0.0, 0.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Expanded(
+                  flex: 2,
+                  // child: Align(
+                  //     alignment: Alignment.topLeft, child: Text(habitat.name))),
+                  child: Padding(
+                      padding: EdgeInsets.only(top: 10.0),
+                      child: Text(habitat.name, style: habitatTitleTextStyle))),
+              Expanded(
+                flex: 1,
+                child: Text(habitat.amount.toString() + ' birds',
+                    style: habitatDescriptionTextStyle),
+              )
+            ],
+          )),
+    );
   }
 }
