@@ -31,7 +31,7 @@ class _TabAppBarState extends State<TabAppBar> {
         Padding(
             padding: EdgeInsets.only(right: 20.0),
             child: GestureDetector(
-                onTap: () {}, //TODO: Glenn - handle settings tap
+                onTap: () => print('Tap - setting'),
                 child: Icon(
                   Icons.tune,
                 )))
