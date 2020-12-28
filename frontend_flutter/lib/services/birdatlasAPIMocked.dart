@@ -42,7 +42,19 @@ class BirdAtlasAPIMocked extends BirdAtlasAPIInterface {
         ..title = 'Follow the great winter migration.'
         ..category = 'Science'
         ..image =
-            'https://www.birdlife.org/sites/default/files/styles/full_620x295/public/news/canada_warbler_c_jayne_gulbrand_smaller.jpg',
+            'https://cdn.images.express.co.uk/img/dynamic/13/590x/549233_1.jpg',
+      Story()
+        ..id = 5
+        ..title = 'Follow the great winter migration.'
+        ..category = 'Science'
+        ..image =
+            'https://www.birdlife.org/sites/default/files/styles/full_620x295/public/news/rufous_hummingbird_selasphorus_rufus_c_ryan_bushby_1.jpg',
+      Story()
+        ..id = 6
+        ..title = 'Follow the great winter migration.'
+        ..category = 'Science'
+        ..image =
+            'https://www.birdlife.org/sites/default/files/styles/third_thumbnail_360x170/public/news/blossomcrown_c_martin_mecnarowski_shutterstock_2.jpg',
     }.toList();
   }
 }

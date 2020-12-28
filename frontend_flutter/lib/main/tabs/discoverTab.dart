@@ -100,7 +100,7 @@ class _StoriesListState extends State<StoriesList> {
 
 class StoryListItem extends StatelessWidget {
   final Story story;
-  bool last;
+  final bool last;
 
   StoryListItem(this.story, this.last);
 
@@ -132,26 +132,31 @@ class StoryListItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Spacer(
-              flex: 6,
+              flex: 8,
             ),
             Expanded(
-                flex: 4,
-                child: Padding(
-                    padding: EdgeInsets.fromLTRB(10.0, 0.0, 10.0, 0.0),
-                    child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Padding(
-                              padding: EdgeInsets.only(bottom: 5.0),
-                              child: Text(
-                                story.category,
-                                style: storyCategoryTextStyle,
-                              )),
-                          Text(
-                            story.title,
-                            style: storyTitleTextStyle,
-                          )
-                        ])))
+                flex: 7,
+                child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.white,
+                      borderRadius: BorderRadius.circular(8.0),
+                    ),
+                    child: Padding(
+                        padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Padding(
+                                  padding: EdgeInsets.only(bottom: 5.0),
+                                  child: Text(
+                                    story.category,
+                                    style: storyCategoryTextStyle,
+                                  )),
+                              Text(
+                                story.title,
+                                style: storyTitleTextStyle,
+                              )
+                            ]))))
           ],
         ));
   }
@@ -190,7 +195,7 @@ class HabitatList extends StatelessWidget {
 
 class HabitatListItem extends StatelessWidget {
   final Habitat habitat;
-  bool last;
+  final bool last;
 
   HabitatListItem(this.habitat, this.last);
 
