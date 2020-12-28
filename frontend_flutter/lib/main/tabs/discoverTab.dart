@@ -25,6 +25,7 @@ class DiscoverBody extends StatelessWidget {
         CategoryHeader('Habitats'),
         HabitatList(),
         CategoryHeader('Nearby'),
+        NearbyList()
       ],
     );
   }
@@ -38,7 +39,7 @@ class CategoryHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-        padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 0.0),
+        padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 10.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
@@ -82,7 +83,7 @@ class _StoriesListState extends State<StoriesList> {
       return SizedBox(
           height: 200,
           child: ListView.builder(
-              padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
+              padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 10.0),
               scrollDirection: Axis.horizontal,
               itemCount: _stories.length,
               itemBuilder: (context, index) {
@@ -132,17 +133,19 @@ class StoryListItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Spacer(
-              flex: 8,
+              flex: 5,
             ),
             Expanded(
-                flex: 7,
+                flex: 5,
                 child: Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
-                      borderRadius: BorderRadius.circular(8.0),
+                      borderRadius: BorderRadius.only(
+                          bottomLeft: Radius.circular(8.0),
+                          bottomRight: Radius.circular(8.0)),
                     ),
                     child: Padding(
-                        padding: EdgeInsets.fromLTRB(10.0, 10.0, 10.0, 0.0),
+                        padding: EdgeInsets.fromLTRB(10.0, 12.0, 10.0, 0.0),
                         child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
@@ -183,7 +186,7 @@ class HabitatList extends StatelessWidget {
     return SizedBox(
         height: 100,
         child: ListView.builder(
-            padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 10.0),
+            padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 10.0),
             scrollDirection: Axis.horizontal,
             itemCount: habitats.length,
             itemBuilder: (context, index) {
@@ -229,6 +232,67 @@ class HabitatListItem extends StatelessWidget {
               )
             ],
           )),
+    );
+  }
+}
+
+class NearbyList extends StatelessWidget {
+  final nearbyBirds = {
+    Nearby()
+      ..name = 'Eurasian hoopoe'
+      ..image =
+          'https://www.birdlife.org/sites/default/files/styles/third_thumbnail_360x170/public/news/canada_warbler_borb_c_steve_jones.jpg',
+    Nearby()
+      ..name = 'Short-eared owl'
+      ..image =
+          'https://www.birdlife.org/sites/default/files/styles/third_thumbnail_360x170/public/news/black-breasted_puffleg_branch_c_murray_cooper_1.jpg',
+    Nearby()
+      ..name = 'Raven'
+      ..image =
+          'https://www.birdlife.org/sites/default/files/styles/third_thumbnail_360x170/public/news/marsh_antwren_c_marco_silva.jpg',
+    Nearby()
+      ..name = 'Pigeon'
+      ..image =
+          'https://www.birdlife.org/sites/default/files/styles/third_thumbnail_360x170/public/Fujingaho_Magazine/Fujingaho202001/fg2002_jpgjing_sayan_fg2001_taka_01_01.jpg'
+  }.toList();
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+        padding: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 20.0),
+        child: Wrap(
+          spacing: 30.0,
+          runSpacing: 30.0,
+          children: nearbyBirds
+              .map((item) => NearbyListItem(item))
+              .toList()
+              .cast<Widget>(),
+        ));
+  }
+}
+
+class NearbyListItem extends StatelessWidget {
+  final Nearby nearby;
+
+  NearbyListItem(this.nearby);
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 160,
+      height: 200,
+      decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(8.0),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.15),
+              spreadRadius: 2.0,
+              blurRadius: 6.5,
+              offset: Offset(3, 3),
+            ),
+          ]),
+      child: Text(nearby.name),
     );
   }
 }

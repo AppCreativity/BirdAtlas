@@ -43,6 +43,11 @@ class Habitat {
   }
 }
 
+class Nearby {
+  String image;
+  String name;
+}
+
 /*
 // In Dart it is not needed to wrap fields into get/set if the getter and setters don't add value
 class ToDo {
