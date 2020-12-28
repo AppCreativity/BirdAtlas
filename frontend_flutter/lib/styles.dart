@@ -18,7 +18,7 @@ TextStyle montserratMedium11 = TextStyle(
 TextStyle montserratMedium13 = TextStyle(
   fontFamily: 'Montserrat',
   fontWeight: FontWeight.w500,
-  fontSize: 11,
+  fontSize: 13,
 );
 
 TextStyle montserratSemiBold14 = TextStyle(

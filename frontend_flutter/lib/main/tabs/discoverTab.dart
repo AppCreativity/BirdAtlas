@@ -279,20 +279,38 @@ class NearbyListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      width: 160,
-      height: 200,
-      decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(8.0),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.15),
-              spreadRadius: 2.0,
-              blurRadius: 6.5,
-              offset: Offset(3, 3),
-            ),
-          ]),
-      child: Text(nearby.name),
-    );
+        width: 160,
+        height: 200,
+        decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(8.0),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.15),
+                spreadRadius: 2.0,
+                blurRadius: 6.5,
+                offset: Offset(3, 3),
+              ),
+            ]),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+          ClipRRect(
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(8.0),
+                  topRight: Radius.circular(8.0)),
+              child: Image.network(
+                nearby.image,
+                height: 130,
+                fit: BoxFit.fitHeight,
+              )),
+          Expanded(
+              child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Padding(
+                      padding: EdgeInsets.only(left: 10.0),
+                      child: Text(
+                        nearby.name,
+                        style: storyTitleTextStyle,
+                      ))))
+        ]));
   }
 }
