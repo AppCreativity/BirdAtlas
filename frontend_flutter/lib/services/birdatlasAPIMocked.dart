@@ -9,6 +9,7 @@ class BirdAtlasAPIMocked extends BirdAtlasAPIInterface {
   }
 
   Future<List<Story>> getStories() async {
+    //TODO: Glenn - dummy delay to test the async loading
     return Future.delayed(Duration(seconds: 5)).then((value) => _stories);
   }
 

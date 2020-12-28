@@ -18,21 +18,14 @@ class DiscoverTab extends StatelessWidget {
 class DiscoverBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0),
-      child: ListView(
-        children: <Widget>[
-          CategoryHeader('Stories'),
-          StoriesList(),
-          Padding(
-              padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
-              child: CategoryHeader('Habitats')),
-          HabitatList(),
-          Padding(
-              padding: EdgeInsets.fromLTRB(0.0, 10.0, 0.0, 0.0),
-              child: CategoryHeader('Nearby')),
-        ],
-      ),
+    return ListView(
+      children: <Widget>[
+        CategoryHeader('Stories'),
+        StoriesList(),
+        CategoryHeader('Habitats'),
+        HabitatList(),
+        CategoryHeader('Nearby'),
+      ],
     );
   }
 }
@@ -44,22 +37,24 @@ class CategoryHeader extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: <Widget>[
-        Text(
-          category,
-          style: categoryTextStyle,
-        ),
-        InkWell(
-          child: Text(
-            'Show all',
-            style: categoryLinkTextStyle,
-          ),
-          onTap: () => print('Tap - Show all'),
-        )
-      ],
-    );
+    return Padding(
+        padding: EdgeInsets.fromLTRB(20.0, 10.0, 20.0, 0.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Text(
+              category,
+              style: categoryTextStyle,
+            ),
+            InkWell(
+              child: Text(
+                'Show all',
+                style: categoryLinkTextStyle,
+              ),
+              onTap: () => print('Tap - Show all'),
+            )
+          ],
+        ));
   }
 }
 
@@ -91,7 +86,8 @@ class _StoriesListState extends State<StoriesList> {
               scrollDirection: Axis.horizontal,
               itemCount: _stories.length,
               itemBuilder: (context, index) {
-                return StoryListItem(_stories[index]);
+                bool last = _stories.length == (index + 1);
+                return StoryListItem(_stories[index], last);
               }));
     }
   }
@@ -104,14 +100,17 @@ class _StoriesListState extends State<StoriesList> {
 
 class StoryListItem extends StatelessWidget {
   final Story story;
+  bool last;
 
-  StoryListItem(this.story);
+  StoryListItem(this.story, this.last);
 
   @override
   Widget build(BuildContext context) {
     return Container(
         width: 200,
-        margin: EdgeInsets.only(right: 20.0),
+        margin: last
+            ? EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0)
+            : EdgeInsets.only(left: 20.0),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(8.0),
@@ -183,21 +182,25 @@ class HabitatList extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             itemCount: habitats.length,
             itemBuilder: (context, index) {
-              return HabitatListItem(habitats[index]);
+              bool last = habitats.length == (index + 1);
+              return HabitatListItem(habitats[index], last);
             }));
   }
 }
 
 class HabitatListItem extends StatelessWidget {
   final Habitat habitat;
+  bool last;
 
-  HabitatListItem(this.habitat);
+  HabitatListItem(this.habitat, this.last);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: 160,
-      margin: EdgeInsets.only(right: 20.0),
+      margin: last
+          ? EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 0.0)
+          : EdgeInsets.only(left: 20.0),
       decoration: BoxDecoration(
         color: habitat.color,
         borderRadius: BorderRadius.circular(8.0),
