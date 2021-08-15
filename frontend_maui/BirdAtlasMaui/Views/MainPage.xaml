@@ -1,0 +1,54 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BirdAtlasMaui.Views.MainPage"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+
+    <ScrollView>
+        <StackLayout Margin="0,12,0,12">
+            <Grid Margin="24,0,24,20">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Stories"
+                       HorizontalOptions="StartAndExpand"
+                       Grid.Column="0" />
+
+                <Label Text="Show all"
+                       HorizontalOptions="EndAndExpand"
+                       Grid.Column="1">
+                </Label>
+            </Grid>
+            
+            <CollectionView ItemsLayout="HorizontalList" ItemsSource="{Binding Stories}"
+                            ItemSizingStrategy="MeasureFirstItem"
+                            HorizontalScrollBarVisibility="Never"
+                            Margin="24,0"
+                            HeightRequest="150">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Margin="0,0,24,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*" />
+                                <RowDefinition Height="3*" />
+                            </Grid.RowDefinitions>
+                            <Image Aspect="AspectFill"
+                                   Grid.Row="0"
+                                   Source="{Binding ImageUrl, Mode=OneTime}"
+                                   HeightRequest="40" WidthRequest="160" />
+                            <StackLayout VerticalOptions="CenterAndExpand"
+                                         Grid.Row="1"
+                                         Padding="12">
+                                <Label Text="{Binding Category, Mode=OneTime}"
+                                       Style="{StaticResource StoryCategoryLabel}" />
+                                <Label Text="{Binding Title, Mode=OneTime}"
+                                       Style="{StaticResource StoryTitleLabel}" />
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
