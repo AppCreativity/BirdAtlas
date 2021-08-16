@@ -15,6 +15,7 @@ namespace BirdAtlasMaui.ViewModels
 
         private IStoryApi _storyService;
         private IHabitatApi _habitatService;
+        private IBirdApi _birdService;
 
         private ObservableCollection<Story> _stories;
         public ObservableCollection<Story> Stories
@@ -44,10 +45,25 @@ namespace BirdAtlasMaui.ViewModels
             }
         }
 
-        public MainViewModel(IStoryApi storyService, IHabitatApi habitatApi)
+        private ObservableCollection<Bird> _birds;
+        public ObservableCollection<Bird> Birds
+        {
+            get => _birds;
+            set
+            {
+                if (value != null)
+                {
+                    _birds = value;
+                    OnPropertyChanged();
+                }
+            }
+        }        
+
+        public MainViewModel(IStoryApi storyService, IHabitatApi habitatApi, IBirdApi birdApi)
         {
             _storyService = storyService;
             _habitatService = habitatApi;
+            _birdService = birdApi;
         }
 
         public async Task Load()
@@ -57,7 +73,8 @@ namespace BirdAtlasMaui.ViewModels
                 await Task.WhenAll(new List<Task>()
                 {
                     { Task.Run(() => GetStoriesAsync()) },
-                    { Task.Run(() => GetHabitatsAsync()) }
+                    { Task.Run(() => GetHabitatsAsync()) },
+                    { Task.Run(() => GetBirdsAsync()) }
                 });
                 _loaded = true;
             }
@@ -77,6 +94,12 @@ namespace BirdAtlasMaui.ViewModels
             var habitats = await _habitatService.Habitats();
             App.Current.Dispatcher.BeginInvokeOnMainThread(() => Habitats = new ObservableCollection<Habitat>(habitats));
         }
+
+        private async Task GetBirdsAsync()
+        {
+            var birds = await _birdService.Birds();
+            App.Current.Dispatcher.BeginInvokeOnMainThread(() => Birds = new ObservableCollection<Story>(birds));
+        }        
 
         public event PropertyChangedEventHandler PropertyChanged;
 
