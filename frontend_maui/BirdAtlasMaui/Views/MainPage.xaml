@@ -5,17 +5,19 @@
 
     <ScrollView>
         <StackLayout Margin="0,12,0,12">
-            <Grid Margin="24,0,24,20">
+            <Grid Margin="24,0,24,10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
                     <ColumnDefinition Width="*" />
                 </Grid.ColumnDefinitions>
 
                 <Label Text="Stories"
+                       Style="{StaticResource CategoryLabel}"
                        HorizontalOptions="StartAndExpand"
                        Grid.Column="0" />
 
                 <Label Text="Show all"
+                       Style="{StaticResource CategoryLinkLabel}"
                        HorizontalOptions="EndAndExpand"
                        Grid.Column="1">
                 </Label>
@@ -28,7 +30,7 @@
                             HeightRequest="150">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <Grid Margin="0,0,24,0">
+                        <Grid Margin="0,0,10,0">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="4*" />
                                 <RowDefinition Height="3*" />
@@ -45,6 +47,57 @@
                                 <Label Text="{Binding Title, Mode=OneTime}"
                                        Style="{StaticResource StoryTitleLabel}" />
                             </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Grid Margin="24,8,24,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                    
+                <Label Text="Habitats"
+                       Style="{StaticResource CategoryLabel}"
+                       HorizontalOptions="StartAndExpand"
+                       Grid.Column="0" />
+                    
+                <Label Text="Show all"
+                       Style="{StaticResource CategoryLinkLabel}"
+                       HorizontalOptions="EndAndExpand"
+                       Grid.Column="1" />
+            </Grid>
+
+            <CollectionView ItemsLayout="HorizontalList" ItemsSource="{Binding Habitats}"
+                            ItemSizingStrategy="MeasureFirstItem"
+                            HorizontalScrollBarVisibility="Never"
+                            Margin="24,0"
+                            HeightRequest="150">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="12,0,0,0"
+                              RowSpacing="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*" />
+                                <RowDefinition Height="3*" />
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding Name, Mode=OneTime}"
+                                   VerticalOptions="Center"
+                                   Style="{StaticResource LabelMontserratSemiBold16}" TextColor="White"
+                                   Grid.Row="0" />
+                            <Label Grid.Row="1"
+                                   VerticalOptions="Center"
+                                   Opacity="0.6">
+                                <Label.FormattedText>
+                                    <FormattedString>
+                                        <Span Text="{Binding Amount, Mode=OneTime}"
+                                              Style="{StaticResource LabelMontserratSemiBold14}" TextColor="White" />
+                                        <Span Text=" birds"
+                                              Style="{StaticResource LabelMontserratSemiBold14}" TextColor="White" />
+                                    </FormattedString>
+                                </Label.FormattedText>
+                            </Label>
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

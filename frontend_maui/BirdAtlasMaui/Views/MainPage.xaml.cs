@@ -1,7 +1,5 @@
 ﻿using Microsoft.Maui.Controls;
-using BirdAtlasMaui.Models;
 using BirdAtlasMaui.ViewModels;
-using BirdAtlasMaui.API.Services;
 
 namespace BirdAtlasMaui.Views
 {
