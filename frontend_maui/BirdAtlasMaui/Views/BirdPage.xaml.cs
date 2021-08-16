@@ -12,11 +12,5 @@ namespace BirdAtlasMaui.Views
 			InitializeComponent();
 			BindingContext = _birdViewModel = viewModel;
 		}
-
-        protected override async void OnAppearing()
-        {
-            base.OnAppearing();
-			//await _birdViewModel.Load();
-        }
     }
 }

@@ -126,7 +126,6 @@
                             SelectionMode="Single"
                             SelectedItem="{Binding SelectedBird}"
                             ItemSizingStrategy="MeasureFirstItem"
-                            HorizontalScrollBarVisibility="Never"
                             Margin="24,0">
                 <CollectionView.ItemsLayout>
                     <GridItemsLayout Orientation="Vertical"
