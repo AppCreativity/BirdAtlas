@@ -1,0 +1,161 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BirdAtlasMaui.Views.MainPage"
+             Title="Bird atlas"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+    <ScrollView>
+        <StackLayout Margin="0,12,0,12">
+            <Grid Margin="24,0,24,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Stories"
+                       Style="{StaticResource CategoryLabel}"
+                       HorizontalOptions="StartAndExpand"
+                       Grid.Column="0" />
+
+                <Label Text="Show all"
+                       Style="{StaticResource CategoryLinkLabel}"
+                       HorizontalOptions="EndAndExpand"
+                       Grid.Column="1">
+                </Label>
+            </Grid>
+            
+            <CollectionView ItemsSource="{Binding Stories}"
+                            ItemSizingStrategy="MeasureFirstItem"
+                            HorizontalScrollBarVisibility="Never"
+                            Margin="24,0"
+                            HeightRequest="150">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal"
+                                       ItemSpacing="10" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid BackgroundColor="#f9fade">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*" />
+                                <RowDefinition Height="3*" />
+                            </Grid.RowDefinitions>
+                            <Image Aspect="AspectFill"
+                                   Grid.Row="0"
+                                   Source="{Binding ImageUrl, Mode=OneTime}"
+                                   HeightRequest="40" WidthRequest="160" />
+                            <StackLayout VerticalOptions="CenterAndExpand"
+                                         Grid.Row="1"
+                                         Padding="12">
+                                <Label Text="{Binding Category, Mode=OneTime}"
+                                       Style="{StaticResource StoryCategoryLabel}" />
+                                <Label Text="{Binding Title, Mode=OneTime}"
+                                       Style="{StaticResource StoryTitleLabel}" />
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Grid Margin="24,20,24,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                    
+                <Label Text="Habitats"
+                       Style="{StaticResource CategoryLabel}"
+                       HorizontalOptions="StartAndExpand"
+                       Grid.Column="0" />
+                    
+                <Label Text="Show all"
+                       Style="{StaticResource CategoryLinkLabel}"
+                       HorizontalOptions="EndAndExpand"
+                       Grid.Column="1" />
+            </Grid>
+
+            <CollectionView ItemsSource="{Binding Habitats}"
+                            ItemSizingStrategy="MeasureFirstItem"
+                            HorizontalScrollBarVisibility="Never"                            
+                            Margin="24,0"
+                            HeightRequest="70">
+                <CollectionView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal"
+                                       ItemSpacing="10" />
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid BackgroundColor="{StaticResource LightBlue}"
+                              Padding="10,0,10,0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="4*" />
+                                <RowDefinition Height="3*" />
+                            </Grid.RowDefinitions>
+                            <Label Text="{Binding Name, Mode=OneTime}"
+                                   VerticalOptions="Center"
+                                   Style="{StaticResource LabelMontserratSemiBold16}" TextColor="White"
+                                   Grid.Row="0" />
+                            <Label Grid.Row="1"
+                                   VerticalOptions="Center"
+                                   Text="{Binding Amount, Mode=OneTime}"
+                                   Style="{StaticResource LabelMontserratSemiBold14}" TextColor="White"
+                                   Opacity="0.6" />
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+
+            <Grid Margin="24,20,24,10">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+
+                <Label Text="Nearby birds"
+                       Style="{StaticResource CategoryLabel}"
+                       HorizontalOptions="StartAndExpand"
+                       Grid.Column="0" />
+
+                <Label Text="Show all"
+                       Style="{StaticResource CategoryLinkLabel}"
+                       HorizontalOptions="EndAndExpand"
+                       Grid.Column="1">
+                </Label>
+            </Grid>
+
+            <CollectionView ItemsSource="{Binding Birds}"
+                            SelectionMode="Single"
+                            SelectedItem="{Binding SelectedBird}"
+                            ItemSizingStrategy="MeasureFirstItem"
+                            Margin="24,0">
+                <CollectionView.ItemsLayout>
+                    <GridItemsLayout Orientation="Vertical"
+                                     Span="2"
+                                     VerticalItemSpacing="10"
+                                     HorizontalItemSpacing="10"/>
+                </CollectionView.ItemsLayout>
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid BackgroundColor="#f9fade">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="80" />
+                                <RowDefinition Height="70" />
+                            </Grid.RowDefinitions>
+                            <Image Aspect="AspectFit"
+                                   Grid.Row="0"
+                                   Source="{Binding ImageUrl, Mode=OneTime}"
+                                   HeightRequest="80" WidthRequest="160" />
+                            <StackLayout VerticalOptions="CenterAndExpand"
+                                         Grid.Row="1"
+                                         Padding="12">
+                                <Label Text="{Binding Family, Mode=OneTime}"
+                                       Style="{StaticResource StoryCategoryLabel}" />
+                                <Label Text="{Binding Name, Mode=OneTime}"
+                                       Style="{StaticResource StoryTitleLabel}" />
+                            </StackLayout>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
