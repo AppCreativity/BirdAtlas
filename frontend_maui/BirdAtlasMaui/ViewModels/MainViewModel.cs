@@ -6,13 +6,17 @@ using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
 using BirdAtlasMaui.API.Models;
 using BirdAtlasMaui.API.Services;
+using BirdAtlasMaui.Views;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Maui.Controls;
 
 namespace BirdAtlasMaui.ViewModels
 {
-    public class MainViewModel : INotifyPropertyChanged
+    public class MainViewModel : BaseViewModel
     {
         private bool _loaded = false;
 
+        private IServiceProvider _serviceProvider;
         private IStoryApi _storyService;
         private IHabitatApi _habitatService;
         private IBirdApi _birdService;
@@ -57,10 +61,30 @@ namespace BirdAtlasMaui.ViewModels
                     OnPropertyChanged();
                 }
             }
-        }        
+        }
 
-        public MainViewModel(IStoryApi storyService, IHabitatApi habitatApi, IBirdApi birdApi)
+        private Bird _selectedBird;
+        public Bird SelectedBird
         {
+            get => _selectedBird;
+            set
+            {
+                if (value != null)
+                {
+                    _selectedBird = value;
+                    OnPropertyChanged();
+
+                    var birdPage = new BirdPage(_serviceProvider.GetRequiredService<BirdViewModel>());
+                    (App.Current.MainPage as NavigationPage).PushAsync(birdPage);
+
+                    ((BirdViewModel)birdPage.BindingContext).Bird = _selectedBird;
+                }
+            }
+        }
+
+        public MainViewModel(IServiceProvider serviceProvider, IStoryApi storyService, IHabitatApi habitatApi, IBirdApi birdApi)
+        {
+            _serviceProvider = serviceProvider;
             _storyService = storyService;
             _habitatService = habitatApi;
             _birdService = birdApi;
@@ -102,11 +126,6 @@ namespace BirdAtlasMaui.ViewModels
         {
             var birds = await _birdService.Birds();
             App.Current.Dispatcher.BeginInvokeOnMainThread(() => Birds = new ObservableCollection<Bird>(birds));
-        }        
-
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null) =>
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

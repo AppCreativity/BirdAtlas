@@ -1,0 +1,12 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="BirdAtlasMaui.Views.BirdPage"
+             Title="{Binding Bird.Name}"
+             BackgroundColor="{DynamicResource PageBackgroundColor}">
+    <StackLayout>
+        <Button Text="Favorite"
+                Command="{Binding FavoriteCommand}"
+                />
+    </StackLayout>
+
+</ContentPage>

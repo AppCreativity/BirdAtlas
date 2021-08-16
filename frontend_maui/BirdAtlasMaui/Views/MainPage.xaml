@@ -1,10 +1,10 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="BirdAtlasMaui.Views.MainPage"
+             Title="Bird atlas"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
-
     <ScrollView>
-        <StackLayout Margin="0,24,0,12">
+        <StackLayout Margin="0,12,0,12">
             <Grid Margin="24,0,24,10">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*" />
@@ -123,6 +123,8 @@
             </Grid>
 
             <CollectionView ItemsSource="{Binding Birds}"
+                            SelectionMode="Single"
+                            SelectedItem="{Binding SelectedBird}"
                             ItemSizingStrategy="MeasureFirstItem"
                             HorizontalScrollBarVisibility="Never"
                             Margin="24,0">

@@ -24,6 +24,7 @@ namespace BirdAtlasMaui
 					services.AddSingleton<IHabitatApi, HabitatService>();
 					services.AddSingleton<IBirdApi, BirdService>();
 					services.AddTransient<MainViewModel>();
+					services.AddTransient<BirdViewModel>();
 				})
 				.ConfigureFonts(fonts =>
 				{

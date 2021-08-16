@@ -18,7 +18,7 @@ namespace BirdAtlasMaui
 			InitializeComponent();
 
 			_serviceProvider = serviceProvider;
-			MainPage = new MainPage(_serviceProvider.GetRequiredService<MainViewModel>());
+			MainPage = new NavigationPage(new MainPage(_serviceProvider.GetRequiredService<MainViewModel>()));
 		}
 	}
 }
