@@ -75,9 +75,9 @@ namespace BirdAtlasMaui.ViewModels
                     OnPropertyChanged();
 
                     var birdPage = new BirdPage(_serviceProvider.GetRequiredService<BirdViewModel>());
-                    (App.Current.MainPage as NavigationPage).PushAsync(birdPage);
-
                     ((BirdViewModel)birdPage.BindingContext).Bird = _selectedBird;
+
+                    (App.Current.MainPage as NavigationPage).PushAsync(birdPage);
                 }
             }
         }

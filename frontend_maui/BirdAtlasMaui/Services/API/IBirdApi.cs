@@ -11,5 +11,8 @@ namespace BirdAtlasMaui.API.Services
     {
         [Get("/birds?page={page}&amount={amount}")]
         Task<List<Bird>> Birds(int page = 0, int amount = 10);
+
+        [Get("/birds/{id}")]
+        Task<Bird> Bird(Guid id);
     }
 }

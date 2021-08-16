@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using BirdAtlasMaui.API.Client;
@@ -17,6 +18,11 @@ namespace BirdAtlasMaui.API.Services
         public Task<List<Bird>> Birds(int page = 0, int amount = 10)
         {
             return _birdApi.Birds(page, amount);
+        }
+
+        public Task<Bird> Bird(Guid id)
+        {
+            return _birdApi.Bird(id);
         }
     }
 }
