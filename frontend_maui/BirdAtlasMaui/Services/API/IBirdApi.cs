@@ -14,5 +14,8 @@ namespace BirdAtlasMaui.API.Services
 
         [Get("/birds/{id}")]
         Task<Bird> Bird(Guid id);
+
+        [Put("/birds/{id}/favorite?favorite={favorite}")]
+        Task Bird(Guid id, bool favorite);
     }
 }

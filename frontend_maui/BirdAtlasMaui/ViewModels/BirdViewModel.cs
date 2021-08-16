@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using BirdAtlasMaui.API.Models;
 using BirdAtlasMaui.API.Services;
+using Microsoft.Maui.Controls;
 
 namespace BirdAtlasMaui.ViewModels
 {
@@ -20,6 +22,9 @@ namespace BirdAtlasMaui.ViewModels
             }
         }
 
+        private ICommand _favoriteCommand;
+        public ICommand FavoriteCommand => _favoriteCommand ?? new Command(async () => await Favorite());
+
         public BirdViewModel(IBirdApi birdApi)
         {
             _birdService = birdApi;
@@ -28,6 +33,11 @@ namespace BirdAtlasMaui.ViewModels
         public async Task Load()
         {
             var bird = await _birdService.Bird(Bird.Id);
+        }
+
+        public Task Favorite()
+        {
+            return _birdService.Bird(Bird.Id, true);
         }
     }
 }

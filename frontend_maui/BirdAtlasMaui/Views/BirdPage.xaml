@@ -5,8 +5,7 @@
              BackgroundColor="{DynamicResource PageBackgroundColor}">
     <StackLayout>
         <Button Text="Favorite"
-                Command="{Binding FavoriteCommand}"
-                />
+                Command="{Binding FavoriteCommand}" />
     </StackLayout>
 
 </ContentPage>

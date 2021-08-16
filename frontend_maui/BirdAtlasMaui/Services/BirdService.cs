@@ -24,5 +24,10 @@ namespace BirdAtlasMaui.API.Services
         {
             return _birdApi.Bird(id);
         }
+
+        public Task Bird(Guid id, bool favorite)
+        {
+            return _birdApi.Bird(id, favorite);
+        }
     }
 }
