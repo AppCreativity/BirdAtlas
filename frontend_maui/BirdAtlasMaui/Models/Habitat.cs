@@ -12,5 +12,7 @@ namespace BirdAtlasMaui.API.Models
 
         [AliasAs("birdCount")]
         public int BirdCount { get; set; }
+
+        public string Amount => $"{BirdCount} birds";
     }
 }

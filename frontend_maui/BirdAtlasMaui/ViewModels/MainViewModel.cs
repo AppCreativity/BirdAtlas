@@ -92,13 +92,16 @@ namespace BirdAtlasMaui.ViewModels
         private async Task GetHabitatsAsync()
         {
             var habitats = await _habitatService.Habitats();
+            habitats.Add(habitats[0]);
+            habitats.Add(habitats[0]);
+
             App.Current.Dispatcher.BeginInvokeOnMainThread(() => Habitats = new ObservableCollection<Habitat>(habitats));
         }
 
         private async Task GetBirdsAsync()
         {
             var birds = await _birdService.Birds();
-            App.Current.Dispatcher.BeginInvokeOnMainThread(() => Birds = new ObservableCollection<Story>(birds));
+            App.Current.Dispatcher.BeginInvokeOnMainThread(() => Birds = new ObservableCollection<Bird>(birds));
         }        
 
         public event PropertyChangedEventHandler PropertyChanged;

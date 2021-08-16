@@ -27,7 +27,7 @@ namespace BirdAtlasMaui.API.Models
         public string ImageUrl { get; set; }
 
         [JsonPropertyName("habitat")]
-        public int Habitat { get; set; }
+        public string Habitat { get; set; }
 
         [JsonPropertyName("diet")]
         public string Diet { get; set; }
