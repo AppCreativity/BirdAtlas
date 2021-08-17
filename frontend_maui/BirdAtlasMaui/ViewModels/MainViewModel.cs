@@ -114,7 +114,7 @@ namespace BirdAtlasMaui.ViewModels
 
         private async Task GetStoriesAsync()
         {
-            var stories = await _storyService.Stories(0, 5);
+            var stories = await _storyService.Stories(0, 4);
 
             App.Current.Dispatcher.BeginInvokeOnMainThread(() => Stories = new ObservableCollection<Story>(stories));
         }

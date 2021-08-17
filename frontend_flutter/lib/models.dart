@@ -39,6 +39,8 @@ class Habitat {
       case HabitatType.Desert:
       case HabitatType.Ocean:
         return AppColors[ColorValue.darkBlue];
+      default:
+        return AppColors[ColorValue.dark];
     }
   }
 }

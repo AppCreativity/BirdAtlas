@@ -35,6 +35,10 @@
 
 	<ItemGroup>
 	  <PackageReference Include="Refit" Version="6.0.94" />
+	  <PackageReference Include="Polly" Version="7.2.2" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Remove="Polly" />
 	</ItemGroup>
 	<PropertyGroup>
 		<InvariantGlobalization Condition="$(TargetFramework.Contains('-maccatalyst'))">true</InvariantGlobalization>

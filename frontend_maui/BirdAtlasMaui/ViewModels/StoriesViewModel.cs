@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.ObjectModel;
+using System.Net;
 using System.Threading.Tasks;
 using BirdAtlasMaui.API.Models;
 using BirdAtlasMaui.API.Services;
+using Polly;
 
 namespace BirdAtlasMaui.ViewModels
 {
@@ -31,7 +33,8 @@ namespace BirdAtlasMaui.ViewModels
 
         public async Task Load()
         {
-            var stories = await _storyService.Stories();
+            //var stories = await _storyService.Stories();
+            var stories = await Policy.Handle<WebException>().WaitAndRetryAsync(retryCount: 3, sleepDurationProvider: retryAttempt => TimeSpan.FromSeconds(Math.Pow(2, retryAttempt))).ExecuteAsync(async () => await _storyService.Stories());
             App.Current.Dispatcher.BeginInvokeOnMainThread(() => Stories = new ObservableCollection<Story>(stories));
         }
     }

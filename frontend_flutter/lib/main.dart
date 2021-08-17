@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_birdatlas/services/birdatlasAPIInterface.dart';
 import 'package:flutter_birdatlas/services/birdatlasAPIMocked.dart';
-// import 'package:flutter/services.dart';
-import 'package:get_it/get_it.dart';
 import 'package:flutter_birdatlas/main/mainPage.dart';
+import 'package:get_it/get_it.dart';
 
 GetIt getIt = GetIt.instance;
 

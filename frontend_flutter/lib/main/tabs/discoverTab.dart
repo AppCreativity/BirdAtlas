@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_birdatlas/main.dart';
 import 'package:flutter_birdatlas/main/tabs/tabAppBar.dart';
 import 'package:flutter_birdatlas/models.dart';
 import 'package:flutter_birdatlas/services/birdatlasAPIInterface.dart';
 import 'package:flutter_birdatlas/styles.dart';
-import 'package:get_it/get_it.dart';
 
 class DiscoverTab extends StatelessWidget {
   @override
@@ -67,7 +67,7 @@ class StoriesList extends StatefulWidget {
 class _StoriesListState extends State<StoriesList> {
   List<Story> _stories;
 
-  BirdAtlasAPIInterface get service => GetIt.instance<BirdAtlasAPIInterface>();
+  BirdAtlasAPIInterface get service => getIt<BirdAtlasAPIInterface>();
 
   @override
   void initState() {
