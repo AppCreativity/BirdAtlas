@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Threading.Tasks;
+using System.Windows.Input;
 using BirdAtlasMaui.API.Models;
 using BirdAtlasMaui.API.Services;
 using BirdAtlasMaui.Views;
@@ -82,6 +83,13 @@ namespace BirdAtlasMaui.ViewModels
             }
         }
 
+        private ICommand _showAllStoriesCommand;
+        public ICommand ShowAllStoriesCommand => _showAllStoriesCommand ?? (_showAllStoriesCommand = new Command(() =>
+        {
+            var storiesPage = new StoriesPage(_serviceProvider.GetRequiredService<StoriesViewModel>());
+            (App.Current.MainPage as NavigationPage).PushAsync(storiesPage);
+        }));
+
         public MainViewModel(IServiceProvider serviceProvider, IStoryApi storyService, IHabitatApi habitatApi, IBirdApi birdApi)
         {
             _serviceProvider = serviceProvider;
@@ -106,9 +114,7 @@ namespace BirdAtlasMaui.ViewModels
 
         private async Task GetStoriesAsync()
         {
-            var stories = await _storyService.Stories();
-            stories.Add(stories[0]);
-            stories.Add(stories[0]);
+            var stories = await _storyService.Stories(0, 5);
 
             App.Current.Dispatcher.BeginInvokeOnMainThread(() => Stories = new ObservableCollection<Story>(stories));
         }

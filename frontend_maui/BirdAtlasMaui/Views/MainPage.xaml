@@ -16,11 +16,16 @@
                        HorizontalOptions="StartAndExpand"
                        Grid.Column="0" />
 
-                <Label Text="Show all"
-                       Style="{StaticResource CategoryLinkLabel}"
-                       HorizontalOptions="EndAndExpand"
-                       Grid.Column="1">
-                </Label>
+                <Grid Grid.Column="1">
+                    <Label Text="Show all"
+                           Style="{StaticResource CategoryLinkLabel}"
+                           HorizontalOptions="EndAndExpand">
+                    </Label>
+                    <Button Command="{Binding ShowAllStoriesCommand}"
+                            VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand"
+                            BorderColor="Transparent"
+                            Background="Transparent"/>
+                </Grid>
             </Grid>
             
             <CollectionView ItemsSource="{Binding Stories}"

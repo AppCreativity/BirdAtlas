@@ -34,9 +34,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Refit" />
-	</ItemGroup>
-	<ItemGroup>
 	  <PackageReference Include="Refit" Version="6.0.94" />
 	</ItemGroup>
 	<PropertyGroup>
