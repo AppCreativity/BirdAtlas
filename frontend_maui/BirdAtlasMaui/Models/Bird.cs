@@ -1,50 +1,51 @@
 ﻿using System;
 using System.Text.Json.Serialization;
+using Refit;
 
 namespace BirdAtlasMaui.API.Models
 {
     public class Bird
     {
-        [JsonPropertyName("id")]
+        [AliasAs("id")]
         public Guid Id { get; set; }
 
-        [JsonPropertyName("name")]
+        [AliasAs("name")]
         public string Name { get; set; }
 
-        [JsonPropertyName("binomial")]
+        [AliasAs("binomial")]
         public string Binomial { get; set; }
 
-        [JsonPropertyName("familyId")]
+        [AliasAs("familyId")]
         public Guid FamilyId { get; set; }
 
-        [JsonPropertyName("family")]
+        [AliasAs("family")]
         public string Family { get; set; }
 
-        [JsonPropertyName("description")]
+        [AliasAs("description")]
         public string Description { get; set; }
 
-        [JsonPropertyName("imageUrl")]
+        [AliasAs("imageUrl")]
         public string ImageUrl { get; set; }
 
-        [JsonPropertyName("habitat")]
+        [AliasAs("habitat")]
         public string Habitat { get; set; }
 
-        [JsonPropertyName("diet")]
+        [AliasAs("diet")]
         public string Diet { get; set; }
 
-        [JsonPropertyName("nesting")]
+        [AliasAs("nesting")]
         public string Nesting { get; set; }
 
-        [JsonPropertyName("population")]
+        [AliasAs("population")]
         public string Population { get; set; }
 
-        [JsonPropertyName("location")]
+        [AliasAs("location")]
         public string Location { get; set; }
 
-        [JsonPropertyName("recentSpottings")]
+        [AliasAs("recentSpottings")]
         public int RecentSpottings { get; set; }
 
-        [JsonPropertyName("favorited")]
+        [AliasAs("favorited")]
         public bool Favorited { get; set; }
     }
 }
