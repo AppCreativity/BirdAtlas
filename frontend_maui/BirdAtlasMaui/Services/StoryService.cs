@@ -30,9 +30,10 @@ namespace BirdAtlasMaui.API.Services
             }
         }
 
-        public Task<List<Story>> FeaturedStories(int amount = 10)
+        public async Task<List<Story>> FeaturedStories(int amount = 10)
         {
-            return _storyApi.FeaturedStories(amount);
+            var result = await _storyApi.FeaturedStories(amount);
+            return result;
         }
     }
 }
