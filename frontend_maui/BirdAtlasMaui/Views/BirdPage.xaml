@@ -3,9 +3,20 @@
              x:Class="BirdAtlasMaui.Views.BirdPage"
              Title="{Binding Bird.Name}"
              BackgroundColor="{DynamicResource PageBackgroundColor}">
-    <StackLayout>
-        <Button Text="Favorite"
-                Command="{Binding FavoriteCommand}" />
+    <StackLayout Margin="24,10,24,10" Spacing="10">
+        <Grid RowDefinitions="*,*" ColumnDefinitions="*,2*"
+              RowSpacing="5">
+            <Label Text="family"
+                   Style="{StaticResource ContentLabel}"
+                   Grid.Row="0" Grid.Column="0" />
+            <Label Text="{Binding Bird.Family}" Grid.Row="0" Grid.Column="1" />
+
+            <Label Text="habitat"
+                   Style="{StaticResource ContentLabel}"
+                   Grid.Row="1" Grid.Column="0" />
+            <Label Text="{Binding Bird.Habitat}" Grid.Row="1" Grid.Column="1" />
+        </Grid>
+        <Button Text="Favorite" Command="{Binding FavoriteCommand}" />
     </StackLayout>
 
 </ContentPage>

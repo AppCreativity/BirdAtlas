@@ -6,9 +6,7 @@
              windows:Application.ImageDirectory="Assets">
     <Application.Resources>
         <ResourceDictionary>
-
-
-            <Color x:Key="PageBackgroundColor">White</Color>
+            <Color x:Key="PageBackgroundColor">#f9fade</Color>
             <Color x:Key="Dark">#262d3a</Color>
             <Color x:Key="LightBlue">#6688ff</Color>
             <Color x:Key="WarmBlue">#3d60db</Color>

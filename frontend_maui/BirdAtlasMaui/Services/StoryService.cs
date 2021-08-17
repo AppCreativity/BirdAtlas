@@ -18,5 +18,10 @@ namespace BirdAtlasMaui.API.Services
         {
             return _storyApi.Stories(page, amount);
         }
+
+        public Task<List<Story>> FeaturedStories(int amount = 10)
+        {
+            return _storyApi.FeaturedStories(amount);
+        }
     }
 }

@@ -23,7 +23,7 @@ namespace BirdAtlasMaui.ViewModels
         }
 
         private ICommand _favoriteCommand;
-        public ICommand FavoriteCommand => _favoriteCommand ?? new Command(async () => await Favorite());
+        public ICommand FavoriteCommand => _favoriteCommand ?? (_favoriteCommand = new Command(async () => await Favorite()));
 
         public BirdViewModel(IBirdApi birdApi)
         {
