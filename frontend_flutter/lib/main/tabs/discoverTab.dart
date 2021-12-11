@@ -240,20 +240,16 @@ class NearbyList extends StatelessWidget {
   final nearbyBirds = {
     Nearby()
       ..name = 'Eurasian hoopoe'
-      ..image =
-          'https://www.birdlife.org/sites/default/files/styles/third_thumbnail_360x170/public/news/canada_warbler_borb_c_steve_jones.jpg',
+      ..image = 'https://placekitten.com/800/600',
     Nearby()
       ..name = 'Short-eared owl'
-      ..image =
-          'https://www.birdlife.org/sites/default/files/styles/third_thumbnail_360x170/public/news/black-breasted_puffleg_branch_c_murray_cooper_1.jpg',
+      ..image = 'https://placekitten.com/800/600',
     Nearby()
       ..name = 'Raven'
-      ..image =
-          'https://www.birdlife.org/sites/default/files/styles/third_thumbnail_360x170/public/news/marsh_antwren_c_marco_silva.jpg',
+      ..image = 'https://placekitten.com/800/600',
     Nearby()
       ..name = 'Pigeon'
-      ..image =
-          'https://www.birdlife.org/sites/default/files/styles/third_thumbnail_360x170/public/Fujingaho_Magazine/Fujingaho202001/fg2002_jpgjing_sayan_fg2001_taka_01_01.jpg'
+      ..image = 'https://placekitten.com/800/600',
   }.toList();
 
   @override

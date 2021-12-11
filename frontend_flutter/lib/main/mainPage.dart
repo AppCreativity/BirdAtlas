@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_birdatlas/main/tabs/bookmarkTab.dart';
 import 'package:flutter_birdatlas/main/tabs/discoverTab.dart';
 import 'package:flutter_birdatlas/main/tabs/searchTab.dart';

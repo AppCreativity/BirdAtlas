@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_birdatlas/services/birdatlasAPIInterface.dart';
 import 'package:flutter_birdatlas/services/birdatlasAPIMocked.dart';
 import 'package:flutter_birdatlas/main/mainPage.dart';
@@ -31,6 +32,9 @@ class BirdAtlasApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
+        appBarTheme: AppBarTheme(
+            systemOverlayStyle: SystemUiOverlayStyle
+                .dark), // https://sarunw.com/posts/how-to-change-status-bar-text-color-in-flutter/
       ),
       //home: SafeArea(child: MainPage()), //SafeArea not needed, the AppBar takes care of it
       home: MainPage(),

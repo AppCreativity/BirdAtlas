@@ -25,7 +25,6 @@ class _TabAppBarState extends State<TabAppBar> {
     return AppBar(
       elevation: 0, //Remove the shadow line
       backgroundColor: Colors.transparent,
-      brightness: Brightness.light,
       actionsIconTheme: IconThemeData(size: 20.0, color: Colors.black),
       actions: [
         Padding(
