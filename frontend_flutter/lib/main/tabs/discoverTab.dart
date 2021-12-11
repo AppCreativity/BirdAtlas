@@ -4,6 +4,7 @@ import 'package:flutter_birdatlas/main/tabs/tabAppBar.dart';
 import 'package:flutter_birdatlas/models.dart';
 import 'package:flutter_birdatlas/services/birdatlasAPIInterface.dart';
 import 'package:flutter_birdatlas/styles.dart';
+import 'package:flutter_staggered_animations/flutter_staggered_animations.dart';
 
 class DiscoverTab extends StatelessWidget {
   @override
@@ -88,7 +89,15 @@ class _StoriesListState extends State<StoriesList> {
               itemCount: _stories.length,
               itemBuilder: (context, index) {
                 bool last = _stories.length == (index + 1);
-                return StoryListItem(_stories[index], last);
+                return AnimationConfiguration.staggeredList(
+                  position: index,
+                  duration: const Duration(milliseconds: 500),
+                  child: FadeInAnimation(
+                    child: StoryListItem(_stories[index], last),
+                  ),
+                );
+                // bool last = _stories.length == (index + 1);
+                // return StoryListItem(_stories[index], last);
               }));
     }
   }
