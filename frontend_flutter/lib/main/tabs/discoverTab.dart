@@ -83,28 +83,31 @@ class _StoriesListState extends State<StoriesList> {
     else {
       return SizedBox(
           height: 200,
-          child: ListView.builder(
-              padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 10.0),
-              scrollDirection: Axis.horizontal,
-              itemCount: _stories.length,
-              itemBuilder: (context, index) {
-                bool last = _stories.length == (index + 1);
-                return AnimationConfiguration.staggeredList(
-                  position: index,
-                  duration: const Duration(milliseconds: 500),
-                  child: FadeInAnimation(
-                    child: StoryListItem(_stories[index], last),
-                  ),
-                );
-                // bool last = _stories.length == (index + 1);
-                // return StoryListItem(_stories[index], last);
-              }));
+          child: AnimationLimiter(
+              child: ListView.builder(
+                  padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 10.0),
+                  scrollDirection: Axis.horizontal,
+                  itemCount: _stories.length,
+                  itemBuilder: (context, index) {
+                    bool last = _stories.length == (index + 1);
+                    return AnimationConfiguration.staggeredList(
+                      position: index,
+                      duration: const Duration(milliseconds: 500),
+                      child: FadeInAnimation(
+                        child: StoryListItem(_stories[index], last),
+                      ),
+                    );
+                    // bool last = _stories.length == (index + 1);
+                    // return StoryListItem(_stories[index], last);
+                  })));
     }
   }
 
   void _getStories() async {
-    _stories = await service.getStories();
-    setState(() {});
+    var stories = await service.getStories();
+    setState(() {
+      _stories = stories;
+    });
   }
 }
 
@@ -141,11 +144,8 @@ class StoryListItem extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Spacer(
-              flex: 5,
-            ),
+            Spacer(),
             Expanded(
-                flex: 5,
                 child: Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -267,7 +267,7 @@ class NearbyList extends StatelessWidget {
         padding: EdgeInsets.fromLTRB(20.0, 0.0, 20.0, 20.0),
         child: Wrap(
           spacing: 30.0,
-          runSpacing: 30.0,
+          runSpacing: 20.0,
           children: nearbyBirds
               .map((item) => NearbyListItem(item))
               .toList()

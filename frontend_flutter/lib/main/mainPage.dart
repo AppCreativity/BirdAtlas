@@ -6,6 +6,8 @@ import 'package:flutter_birdatlas/models.dart';
 import 'package:flutter_birdatlas/styles.dart';
 
 class MainPage extends StatefulWidget {
+  const MainPage({Key key}) : super(key: key);
+
   @override
   State<StatefulWidget> createState() => _MainPageState();
 }
