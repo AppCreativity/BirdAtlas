@@ -1,4 +1,4 @@
-package com.example.flutter_birdatlas
+package com.example.frontend_flutter
 
 import io.flutter.embedding.android.FlutterActivity
 
