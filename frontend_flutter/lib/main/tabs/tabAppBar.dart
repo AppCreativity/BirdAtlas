@@ -4,7 +4,7 @@ import 'package:flutter_birdatlas/styles.dart';
 class TabAppBar extends StatefulWidget implements PreferredSizeWidget {
   final String title;
 
-  TabAppBar(this.title, {Key key})
+  TabAppBar(this.title, {Key? key})
       : preferredSize = Size.fromHeight(kToolbarHeight),
         super(key: key);
 

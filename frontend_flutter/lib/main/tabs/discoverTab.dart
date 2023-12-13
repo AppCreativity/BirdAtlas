@@ -66,7 +66,7 @@ class StoriesList extends StatefulWidget {
 }
 
 class _StoriesListState extends State<StoriesList> {
-  List<Story> _stories;
+  List<Story>? _stories;
 
   BirdAtlasAPIInterface get service => getIt<BirdAtlasAPIInterface>();
 
@@ -87,14 +87,14 @@ class _StoriesListState extends State<StoriesList> {
               child: ListView.builder(
                   padding: EdgeInsets.fromLTRB(0.0, 0.0, 0.0, 10.0),
                   scrollDirection: Axis.horizontal,
-                  itemCount: _stories.length,
+                  itemCount: _stories!.length,
                   itemBuilder: (context, index) {
-                    bool last = _stories.length == (index + 1);
+                    bool last = _stories!.length == (index + 1);
                     return AnimationConfiguration.staggeredList(
                       position: index,
                       duration: const Duration(milliseconds: 500),
                       child: FadeInAnimation(
-                        child: StoryListItem(_stories[index], last),
+                        child: StoryListItem(_stories![index], last),
                       ),
                     );
                     // bool last = _stories.length == (index + 1);
@@ -137,7 +137,7 @@ class StoryListItem extends StatelessWidget {
           ],
           image: DecorationImage(
             alignment: Alignment.topCenter,
-            image: NetworkImage(story.image),
+            image: NetworkImage(story.image!),
             fit: BoxFit.fitWidth,
           ),
         ),
@@ -161,11 +161,11 @@ class StoryListItem extends StatelessWidget {
                               Padding(
                                   padding: EdgeInsets.only(bottom: 5.0),
                                   child: Text(
-                                    story.category,
+                                    story.category!,
                                     style: storyCategoryTextStyle,
                                   )),
                               Text(
-                                story.title,
+                                story.title!,
                                 style: storyTitleTextStyle,
                               )
                             ]))))
@@ -233,7 +233,8 @@ class HabitatListItem extends StatelessWidget {
                   //     alignment: Alignment.topLeft, child: Text(habitat.name))),
                   child: Padding(
                       padding: EdgeInsets.only(top: 10.0),
-                      child: Text(habitat.name, style: habitatTitleTextStyle))),
+                      child:
+                          Text(habitat.name!, style: habitatTitleTextStyle))),
               Expanded(
                 flex: 1,
                 child: Text(habitat.amount.toString() + ' birds',
@@ -303,7 +304,7 @@ class NearbyListItem extends StatelessWidget {
                   topLeft: Radius.circular(8.0),
                   topRight: Radius.circular(8.0)),
               child: Image.network(
-                nearby.image,
+                nearby.image!,
                 height: 130,
                 fit: BoxFit.fitHeight,
               )),
@@ -313,7 +314,7 @@ class NearbyListItem extends StatelessWidget {
                   child: Padding(
                       padding: EdgeInsets.only(left: 10.0),
                       child: Text(
-                        nearby.name,
+                        nearby.name!,
                         style: storyTitleTextStyle,
                       ))))
         ]));

@@ -15,19 +15,19 @@ enum HabitatType {
 }
 
 class Story {
-  int id;
-  String title;
-  String category;
-  String author;
-  String image;
-  bool isFeatured;
+  int? id;
+  String? title;
+  String? category;
+  String? author;
+  String? image;
+  bool? isFeatured;
 }
 
 class Habitat {
-  String name;
-  HabitatType type;
-  int amount;
-  Color get color {
+  String? name;
+  HabitatType? type;
+  int? amount;
+  Color? get color {
     switch (type) {
       case HabitatType.Grassland:
       case HabitatType.Tundra:
@@ -46,8 +46,8 @@ class Habitat {
 }
 
 class Nearby {
-  String image;
-  String name;
+  String? image;
+  String? name;
 }
 
 /*

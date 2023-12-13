@@ -37,7 +37,7 @@ class BirdAtlasApp extends StatelessWidget {
                 .dark), // https://sarunw.com/posts/how-to-change-status-bar-text-color-in-flutter/
       ),
       //home: SafeArea(child: MainPage()), //SafeArea not needed, the AppBar takes care of it
-      home: const MainPage(),
+      home: MainPage(),
       debugShowCheckedModeBanner: false,
     );
   }

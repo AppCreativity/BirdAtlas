@@ -2,7 +2,7 @@ import 'package:flutter_birdatlas/models.dart';
 import 'package:flutter_birdatlas/services/birdatlasAPIInterface.dart';
 
 class BirdAtlasAPIMocked extends BirdAtlasAPIInterface {
-  List<Story> _stories;
+  late List<Story> _stories;
 
   BirdAtlasAPIMocked() {
     _initStories();
